@@ -12,20 +12,16 @@ Resources to prepare for Java developer interviews
 * [Core Java](#core-java)
 * [Design Patterns](#design-patterns)
     * [What is Dependency Injection?](#what-is-dependency-injection)
+    * [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring)
 * [Spring](#spring)
-  * [What are different types of scopes of beans in Spring?](#what-are-different-types-of-scopes-of-beans-in-spring)
-    * [Singleton](#singleton-scope)
-    * [Prototype](#prototype-scope)
-    * [Request](#request-scope)
-    * [Session](#session-scope)
-    * [Global Session](#global-session-scope)
-    * [Application](#Application-scope)
+  * [What are the different types of scopes of beans in Spring?](#what-are-different-types-of-scopes-of-beans-in-spring)
   * [What is an IOC container?](#what-is-an-ioc-container)
 * [React](#react)
 * [Git Commands](#git-commands)
 * [Coding Problems](#solving-hackerrank--leetcode-problems)
   * [Local setup](#solving-problems-locally) 
-* [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring) 
+
+*These need to be updated:*
 * [What is the difference between Comparable and Comparator?](#what-is-the-difference-between-comparable-and-comparator) 
 * [What is Serializable interface?](#what-is-serializable-interface)
 * [What is ArrayList?](#what-is-arraylist)
@@ -112,7 +108,53 @@ class are provided externally rather than created within the class itself.
 Dependency injection frameworks like Spring facilitate automatic dependency injection based 
 on configuration or annotations.
 
+### What is a Singleton design pattern and how it is related to Spring?
+The Singleton Design Pattern is a creational design pattern that
+ensures a class has only one instance and provides a global point
+of access to that instance.
+
+This pattern is useful when you want
+to restrict instantiation of a class to a single object, which can
+be shared across different parts of your application.
+
+#### Key Features of Singleton Pattern
+- **Single Instance**: The class should have only one instance which is shared across the application.
+- **Global Access**: The instance should be globally accessible so that any part of the application can use it.
+
+#### Implementation in Java
+Here's a simple implementation of the Singleton Pattern in Java:
+
+```java
+public class Singleton {
+    // Private static variable to hold the single instance of the class
+    private static Singleton instance;
+
+    // Private constructor to prevent instantiation from other classes
+    private Singleton() {
+    }
+
+    // Public static method to get the single instance of the class
+    public static Singleton getInstance() {
+        // Creates the instance when needed
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+
+    // Other methods of the class
+    public void showMessage() {
+        System.out.println("Hello, I am a Singleton instance!");
+    }
+}
+```
+## Advantages of Singleton Pattern
+- **Controlled Access**: It provides a global point of access to the instance, allowing controlled access to the object.
+- **Memory Conservation**: It conserves memory by creating the instance only when it is needed (lazy initialization).
+- **Global Access**: It allows the same instance to be accessed from any part of the application.
 ---
+
+
 
 ## Spring
 
@@ -216,7 +258,6 @@ git commit -m "Commit message"
 git commit -am "commit message"
 ```
 
-
 ```bash
 git switch -C new-branch-name
 git switch branch-name
@@ -312,7 +353,6 @@ void removeDuplicatesTest() {
 
 
 
-### What is a Singleton design pattern and how it is related to Spring?
 ### What is the difference between Comparable and Comparator?
 ### What is Serializable interface?
 ### What is ArrayList?
