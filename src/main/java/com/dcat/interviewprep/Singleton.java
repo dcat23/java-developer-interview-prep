@@ -2,7 +2,6 @@ package com.dcat.interviewprep;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Scanner;
 
 public class Singleton {
 
@@ -10,15 +9,12 @@ public class Singleton {
 
     private final Instant start;
 
-    private final Scanner scan;
-
 
     /**
      * Private constructor to prevent instantiation from other classes
      */
     private Singleton() {
         start = Instant.now();
-        scan = new Scanner(System.in);
     }
 
     /**
@@ -62,11 +58,8 @@ public class Singleton {
         return builder.toString();
     }
 
-    public Scanner getScanner() {
-        return scan;
-    }
-
     public Instant getStart() {
         return start;
     }
+
 }

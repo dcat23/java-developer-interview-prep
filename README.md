@@ -10,6 +10,7 @@ Resources to prepare for Java developer interviews
 ## Table of Contents
 
 * [Core Java](#core-java)
+  * [What is the difference between Comparable and Comparator?](#what-is-the-difference-between-comparable-and-comparator)
 * [Design Patterns](#design-patterns)
     * [What is Dependency Injection?](#what-is-dependency-injection)
     * [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring)
@@ -21,8 +22,7 @@ Resources to prepare for Java developer interviews
 * [Coding Problems](#solving-hackerrank--leetcode-problems)
   * [Local setup](#solving-problems-locally) 
 
-*These need to be updated:*
-* [What is the difference between Comparable and Comparator?](#what-is-the-difference-between-comparable-and-comparator) 
+*These need to be updated:* 
 * [What is Serializable interface?](#what-is-serializable-interface)
 * [What is ArrayList?](#what-is-arraylist)
 * [What is the difference between ArrayList and Linked List?](#what-is-the-difference-between-arraylist-and-linked-list)
@@ -79,6 +79,29 @@ Resources to prepare for Java developer interviews
 ---
 
 ## Core Java
+
+### What is the difference between Comparable and Comparator?
+`Comparable` and `Comparator` are both interfaces used for sorting objects.
+
+#### Comparable:
+
+- Located in the `java.lang` package
+- Classes can be sorted based on the natural ordering of their instances.
+- The `compareTo()` method is used to define the natural ordering of objects.
+- Sorting logic is built into the [class itself](./src/main/java/com/dcat/interviewprep/Student.java) 
+
+#### Comparator:
+
+- Located in the `java.util` package.
+- Sorts objects based on custom ordering criteria, 
+- Can differ from the natural ordering defined by the objects themselves.
+- The `compare()` method is used to compare two objects according to a specific ordering defined by the Comparator.
+- Allows you to define multiple different sorting criteria for the same class without modifying the class itself.
+
+- 
+[AgeComparator](./src/main/java/com/dcat/interviewprep/AgeComparator.java) for sorting `Students` based on their ages,  
+[GradeComparator](./src/main/java/com/dcat/interviewprep/GradeComparator.java) for sorting `Students` based on their grades,  
+
 
 --- 
 
@@ -170,7 +193,6 @@ Singleton pattern to ensure that only one instance of that bean is created
 and used throughout the application context.
 
 ---
-
 
 
 ## Spring
@@ -370,7 +392,6 @@ void removeDuplicatesTest() {
 
 
 
-### What is the difference between Comparable and Comparator?
 ### What is Serializable interface?
 ### What is ArrayList?
 ### What is the difference between ArrayList and Linked List?
