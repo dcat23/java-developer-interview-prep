@@ -14,13 +14,13 @@ public class LeetCode {
      * Given an integer array nums sorted in non-decreasing order,
      * remove the duplicates in-place such that each unique element
      * appears only once.
-     *
+
      * Change the array nums such that the first k elements of nums contain the
      * unique elements in the order they were present in nums initially.
      * The remaining elements of nums are not important as well as the size of nums.
      *
      *
-     * @param nums
+     * @param nums integers
      * @return k The number of unique elements of nums
      */
     static public int removeDuplicates(int[] nums) {
