@@ -2,7 +2,7 @@ package com.dcat.interviewprep;
 
 import java.util.Comparator;
 
-public class AgeComparator implements Comparator <Student> {
+public class StudentAgeComparator implements Comparator <Student> {
 
     @Override
     public int compare(Student o1, Student o2) {

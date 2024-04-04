@@ -16,7 +16,7 @@ Resources to prepare for Java developer interviews
     * [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring)
 * [Spring](#spring)
   * [What are the different types of scopes of beans in Spring?](#what-are-different-types-of-scopes-of-beans-in-spring)
-  * [What is an IOC container?](#what-is-an-ioc-container)
+  * [What is an IoC container?](#what-is-an-ioc-container)
 * [React](#react)
 * [Git Commands](#git-commands)
 * [Coding Problems](#solving-hackerrank--leetcode-problems)
@@ -98,9 +98,8 @@ Resources to prepare for Java developer interviews
 - The `compare()` method is used to compare two objects according to a specific ordering defined by the Comparator.
 - Allows you to define multiple different sorting criteria for the same class without modifying the class itself.
 
-- 
-[AgeComparator](./src/main/java/com/dcat/interviewprep/AgeComparator.java) for sorting `Students` based on their ages,  
-[GradeComparator](./src/main/java/com/dcat/interviewprep/GradeComparator.java) for sorting `Students` based on their grades,  
+[Age comparator](./src/main/java/com/dcat/interviewprep/StudentAgeComparator.java) for sorting `Students` based on their ages,  
+[Grade comparator](./src/main/java/com/dcat/interviewprep/StudentGradeComparator.java) for sorting `Students` based on their grades,  
 
 
 --- 
@@ -238,7 +237,7 @@ lifecycle and visibility of bean instances within the container.
 - A single instance of the bean is created for each ServletContext.
 - It's similar to Singleton scope but is bound to ServletContext instead of Spring IoC container.
 
-### What is an IOC container?
+### What is an IoC container?
 In software engineering, an Inversion of Control (IoC) container, 
 often referred to as an IoC container or simply a container, is a component 
 responsible for managing the lifecycle of objects and their dependencies. 
