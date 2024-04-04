@@ -148,10 +148,27 @@ public class Singleton {
     }
 }
 ```
-## Advantages of Singleton Pattern
-- **Controlled Access**: It provides a global point of access to the instance, allowing controlled access to the object.
-- **Memory Conservation**: It conserves memory by creating the instance only when it is needed (lazy initialization).
-- **Global Access**: It allows the same instance to be accessed from any part of the application.
+
+#### Advantages of Singleton Pattern
+- **Controlled Access**: It provides a global point of access to the instance, 
+allowing controlled access to the object.
+- **Memory Conservation**: It conserves memory by creating the instance only 
+when it is needed (lazy initialization).
+- **Global Access**: It allows the same instance to be accessed from any 
+part of the application.
+
+#### How is the Singleton pattern related to Spring
+In Spring, the Singleton pattern is utilized in the management of beans within 
+the [Spring IoC container](#what-is-an-ioc-container). 
+
+By default, Spring beans are [singleton scoped](#singleton-scope), 
+meaning that the Spring IoC container creates and manages only one instance 
+of the bean per container. 
+
+When you define a bean in the Spring configuration, Spring follows the 
+Singleton pattern to ensure that only one instance of that bean is created
+and used throughout the application context.
+
 ---
 
 
