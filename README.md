@@ -1,13 +1,15 @@
-# Java Dev Interview Prep 
-[![GitHub Stars](https://img.shields.io/github/stars/dcat23/interview-prep.svg)](https://github.com/dcat23/interview-prep/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/dcat23/interview-prep.svg)](https://github.com/dcat23/interview-prep/issues)
-[![Current Version](https://img.shields.io/badge/version-0.0.0-green.svg)](https://github.com/dcat23/interview-prep)
+# Java Full Stack Devevloper Interview Prep 
+[![GitHub Stars](https://img.shields.io/github/stars/dcat23/java-developer-interview-prep.svg)](https://github.com/dcat23/java-developer-interview-prep/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/dcat23/java-developer-interview-prep.svg)](https://github.com/dcat23/java-developer-interview-prep/issues)
+[![Current Version](https://img.shields.io/badge/version-0.0.0-green.svg)](https://github.com/dcat23/java-developer-interview-prep)
 
 Resources to prepare for Java developer interviews
 
 ---
 
 ## Table of Contents
+
+* [Core Java](#core-java)
 * [Design Patterns](#design-patterns)
     * [What is Dependency Injection?](#what-is-dependency-injection)
 * [Spring](#spring)
@@ -19,6 +21,10 @@ Resources to prepare for Java developer interviews
     * [Global Session](#global-session-scope)
     * [Application](#Application-scope)
   * [What is an IOC container?](#what-is-an-ioc-container)
+* [React](#react)
+* [Git Commands](#git-commands)
+* [Coding Problems](#solving-hackerrank--leetcode-problems)
+  * [Local setup](#solving-problems-locally) 
 * [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring) 
 * [What is the difference between Comparable and Comparator?](#what-is-the-difference-between-comparable-and-comparator) 
 * [What is Serializable interface?](#what-is-serializable-interface)
@@ -48,14 +54,14 @@ Resources to prepare for Java developer interviews
 * [What is an Actuator in SpringBoot?](#what-is-an-actuator-in-springboot)
 * [Explain virtual DOM in react?](#explain-virtual-dom-in-react)
 * [Difference between fetch and pull command in git.](#difference-between-fetch-and-pull-command-in-git)
-* [What is asysnchronous programming in general?](#what-is-asysnchronous-programming-in-general)
+* [What is asynchronous programming in general?](#what-is-asynchronous-programming-in-general)
 * [Difference between Error and Exception in Java.](#difference-between-error-and-exception-in-java)
 * [Difference between runtime exception and compile time exception.](#difference-between-runtime-exception-and-compile-time-exception)
 * [State and explain different types of polymorphism in OOPs.](#state-and-explain-different-types-of-polymorphism-in-oops)
 * [What is a Hibernate?](#what-is-a-hibernate)
 * [Difference between Hibernate and JDBC.](#difference-between-hibernate-and-jdbc)
 * [What is the use of Autowired annotation in Spring?](#what-is-the-use-of-autowired-annotation-in-spring)
-* [What is a RESTfull API?](#what-is-a-restfull-api)
+* [What is a RESTful API?](#what-is-a-restful-api)
 * [Difference between TreeSet and HashSet.](#difference-between-treeset-and-hashset)
 * [What is a Scrum framework?](#what-is-a-scrum-framework)
 * [What is the use of Static keyword in Java?](#what-is-the-use-of-static-keyword-in-java)
@@ -74,6 +80,8 @@ Resources to prepare for Java developer interviews
 * [What is the use of Synchronized keyword?](#what-is-the-use-of-synchronized-keyword)
 * [What is Spring Data JPA?](#what-is-spring-data-jpa)
 ---
+## Core Java
+
 ## Design Patterns
 
 ### What is Dependency Injection?
@@ -169,6 +177,60 @@ Features:
 Other IoC containers exist in various programming languages and frameworks, 
 each with its own set of features and capabilities.
 
+## React
+
+## Git Commands
+
+## Solving HackerRank / LeetCode Problems
+
+### Solving Problems Locally
+
+- [LeetCode](./src/main/java/com/dcat/interviewprep/problems/LeetCode.java)
+- [HackerRank](./src/main/java/com/dcat/interviewprep/problems/HackerRank.java)
+
+1. Copy function as a static method
+
+2. Create comment above the function.
+*type `/**` then `Enter`*
+```java
+/**
+ *<h1>
+ *    <a href="CHANGE_THIS_TO_THE_URL">
+ *      CHANGE_THIS_TO_PROBLEM_TITLE
+ *    </a>
+ * </h1>
+ * <p>
+ *     DESCRIPTION
+ * </p>
+ * @param nums
+ * @return expected A number that we want
+ */
+static public int removeDuplicates(int[] nums) {
+    int expected = 0;
+    
+    return expected;
+}
+```
+
+3. Generate test for function with `command` + `N`.
+
+4. copy test cases
+```java
+@Test
+void removeDuplicatesTest() {
+    int[] case1 = {1,1,2};
+    int[] case2 = {0,0,1,1,1,2,2,3,3,4};
+
+
+    assertEquals(removeDuplicates(case1), 2);
+    assertEquals(removeDuplicates(case2), 5);
+
+}
+```
+
+---
+
+
 
 ### What is a Singleton design pattern and how it is related to Spring?
 ### What is the difference between Comparable and Comparator?
@@ -199,14 +261,14 @@ each with its own set of features and capabilities.
 ### What is an Actuator in SpringBoot?
 ### Explain virtual DOM in react?
 ### Difference between fetch and pull command in git.
-### What is asysnchronous programming in general?
+### What is asynchronous programming in general?
 ### Difference between Error and Exception in Java.
 ### Difference between runtime exception and compile time exception.
 ### State and explain different types of polymorphism in OOPs.
 ### What is a Hibernate?
 ### Difference between Hibernate and JDBC.
 ### What is the use of Autowired annotation in Spring?
-### What is a RESTfull API?
+### What is a RESTful API?
 ### Difference between TreeSet and HashSet.
 ### What is a Scrum framework?
 ### What is the use of Static keyword in Java?
