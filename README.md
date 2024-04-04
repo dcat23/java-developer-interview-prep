@@ -79,8 +79,12 @@ Resources to prepare for Java developer interviews
 * [What are legacy classes(e.g HashTable)?](#what-are-legacy-classeseg-hashtable)
 * [What is the use of Synchronized keyword?](#what-is-the-use-of-synchronized-keyword)
 * [What is Spring Data JPA?](#what-is-spring-data-jpa)
+
 ---
+
 ## Core Java
+
+--- 
 
 ## Design Patterns
 
@@ -107,6 +111,8 @@ class are provided externally rather than created within the class itself.
 
 Dependency injection frameworks like Spring facilitate automatic dependency injection based 
 on configuration or annotations.
+
+---
 
 ## Spring
 
@@ -177,9 +183,83 @@ Features:
 Other IoC containers exist in various programming languages and frameworks, 
 each with its own set of features and capabilities.
 
+---
+
 ## React
 
+---
+
 ## Git Commands
+```bash
+# To show if files are added, ready to commit, untracked
+git status
+
+# To show history of all the commits
+git log --oneline --all --graph 
+
+# shows file changes within files
+git diff 
+```
+
+```bash
+# prepares all files/directories to be commit
+git add .
+
+# one file
+git add src/test.java
+
+# everything in src folder
+git add src/
+
+git commit -m "Commit message"
+# add and commit
+git commit -am "commit message"
+```
+
+
+```bash
+git switch -C new-branch-name
+git switch branch-name
+
+# Switch to existing branch
+git checkout branch-name
+# Creates new branch and switches
+git checkout -b branch-name
+```
+
+```bash
+git push -u origin feature/branch
+```
+
+```bash
+# To fetch remote branch changes and merge them in your local repo
+git pull 
+# To make changes of git hub available to your local repo
+git pull origin 
+```
+
+```bash
+# To merge the branch into the branch to which Head is pointing towards
+git merge branch-name 
+```
+
+```bash
+# To show branches in your local git repo
+git branch 
+# To show the remote branches available in your local git repo
+git branch -r 
+```
+
+### To delete the branch once you are done with your branch:
+```bash
+# will delete the local branch on your local repo
+git branch -d branch-name 
+# will delete the origin/branch-name
+git push -d origin branch-name 
+git remote prune origin
+```
+
+---
 
 ## Solving HackerRank / LeetCode Problems
 
