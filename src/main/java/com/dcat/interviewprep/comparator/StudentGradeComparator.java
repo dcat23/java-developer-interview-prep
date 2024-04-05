@@ -1,4 +1,6 @@
-package com.dcat.interviewprep;
+package com.dcat.interviewprep.comparator;
+
+import com.dcat.interviewprep.Student;
 
 import java.util.Comparator;
 

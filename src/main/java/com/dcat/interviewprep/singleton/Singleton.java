@@ -1,4 +1,4 @@
-package com.dcat.interviewprep;
+package com.dcat.interviewprep.singleton;
 
 import java.time.Duration;
 import java.time.Instant;

@@ -1,9 +1,10 @@
 package com.dcat.interviewprep;
 
+import com.dcat.interviewprep.comparator.StudentAgeComparator;
+import com.dcat.interviewprep.comparator.StudentGradeComparator;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

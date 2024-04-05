@@ -11,6 +11,7 @@ Resources to prepare for Java developer interviews
 
 * [Core Java](#core-java)
   * [What is the difference between Comparable and Comparator?](#what-is-the-difference-between-comparable-and-comparator)
+  * [How HashMap works internally?](#how-hashmap-works-internally)
 * [Design Patterns](#design-patterns)
     * [What is Dependency Injection?](#what-is-dependency-injection)
     * [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring)
@@ -26,7 +27,6 @@ Resources to prepare for Java developer interviews
 * [What is Serializable interface?](#what-is-serializable-interface)
 * [What is ArrayList?](#what-is-arraylist)
 * [What is the difference between ArrayList and Linked List?](#what-is-the-difference-between-arraylist-and-linked-list)
-* [How HashMap works internally?](#how-hashmap-works-internally)
 * [How HashSet works internally?](#how-hashset-works-internally)
 * [Difference between Spring and Spring Boot.](#difference-between-spring-and-spring-boot)
 * [Difference between @RestController and @Controller annotation.](#difference-between-restcontroller-and-controller-annotation)
@@ -98,9 +98,59 @@ Resources to prepare for Java developer interviews
 - The `compare()` method is used to compare two objects according to a specific ordering defined by the Comparator.
 - Allows you to define multiple different sorting criteria for the same class without modifying the class itself.
 
-[Age comparator](./src/main/java/com/dcat/interviewprep/StudentAgeComparator.java) for sorting `Students` based on their ages,  
-[Grade comparator](./src/main/java/com/dcat/interviewprep/StudentGradeComparator.java) for sorting `Students` based on their grades,  
+[Age comparator](./src/main/java/com/dcat/interviewprep/comparator/StudentAgeComparator.java) for sorting `Students` based on their ages,  
+[Grade comparator](./src/main/java/com/dcat/interviewprep/comparator/StudentGradeComparator.java) for sorting `Students` based on their grades,  
 
+
+### How HashMap works internally?
+`HashMap` is a data structure that implements the `Map` interface, providing 
+key-value pair storage and retrieval functionality. 
+
+Internally, `HashMap` uses an array of 'buckets' to store key-value pairs.
+
+Each bucket is essentially a linked list of entries (or nodes), where each entry contains 
+a key-value pair and a reference to the next entry in the list.
+
+#### Hashing:
+When you put a key-value pair into a HashMap, the HashMap computes the hash code of the
+key using the `hashCode()` method of the key object. 
+
+This hash code is then used to determine the index (or bucket) in the array where the 
+key-value pair will be stored.
+
+#### Bucket Selection:
+Once the hash code is computed, `HashMap` uses it to determine the bucket where the 
+key-value pair will be stored. 
+
+The index of the bucket is obtained by performing a modulo operation on the hash code 
+with the size of the array (number of buckets). 
+
+This ensures that the index falls within the valid range of bucket indices.
+
+#### Collision Handling:
+Since multiple keys can have the same hash code (known as hash code collisions), 
+`HashMap` handles collisions by using a linked list structure. 
+
+If two keys hash to the same index, their key-value pairs are stored in the same bucket 
+as a linked list. New entries are appended to the end of the linked list.
+
+#### Load Factor and Rehashing:
+`HashMap` maintains a load factor (default value is 0.75) that determines when the 
+internal array needs to be resized and rehashed. 
+
+When the number of entries exceeds the product of the load factor and the current 
+capacity of the array, `HashMap` automatically increases the capacity of the array and
+rehashes all entries to redistribute them across the new array.
+
+#### Retrieval and Removal:
+1. Compute the hash code of the key.
+2. Determine the bucket where the key-value pair is stored (using modulo `%`)
+3. Traverses the linked list in that bucket to find the entry with the matching key. 
+
+Similarly, when you remove a key-value pair, `HashMap` locates the bucket and entry using 
+the hash code of the key and removes the entry from the linked list.
+
+[Example HashMap](./src/main/java/com/dcat/interviewprep/hashmap/MyHashMap.java)
 
 --- 
 
@@ -110,7 +160,7 @@ Resources to prepare for Java developer interviews
 
 #### Definition:
 
-Dependency Injection (DI) is a design pattern where dependencies of a 
+Dependency Injection is a design pattern where dependencies of a 
 class are provided externally rather than created within the class itself.
 
 #### Benefits:
@@ -139,11 +189,13 @@ This pattern is useful when you want
 to restrict instantiation of a class to a single object, which can
 be shared across different parts of your application.
 
-#### Key Features of Singleton Pattern
+#### Features
+
 - **Single Instance**: The class should have only one instance which is shared across the application.
 - **Global Access**: The instance should be globally accessible so that any part of the application can use it.
 
-#### Implementation in Java
+#### Implementation
+
 Here's a simple implementation of the Singleton Pattern in Java:
 
 ```java
@@ -171,7 +223,7 @@ public class Singleton {
 }
 ```
 
-#### Advantages of Singleton Pattern
+#### Advantages
 - **Controlled Access**: It provides a global point of access to the instance, 
 allowing controlled access to the object.
 - **Memory Conservation**: It conserves memory by creating the instance only 
@@ -394,7 +446,6 @@ void removeDuplicatesTest() {
 ### What is Serializable interface?
 ### What is ArrayList?
 ### What is the difference between ArrayList and Linked List?
-### How HashMap works internally?
 ### How HashSet works internally?
 ### Difference between Spring and Spring Boot.
 ### Difference between @RestController and @Controller annotation.
