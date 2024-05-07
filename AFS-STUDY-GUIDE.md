@@ -67,6 +67,8 @@
 ### Guice
 ### CDI
 
+---
+
 ## Describe the concepts of Java object-oriented programming?
 
 Object-oriented programming (OOP) is a programming paradigm based
@@ -115,3 +117,6 @@ Abstract classes and interfaces are key components of abstraction in Java.
 - Interfaces specify a set of methods that must be defined by any class that implements the interface.
 
 --- 
+
+
+## What is JDBC?
