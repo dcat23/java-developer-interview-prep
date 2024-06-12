@@ -63,33 +63,514 @@ AWS Cloud experience
 ### Brief us about your exp and tech stacks currently using or used in the recent project?
 ### I have a UI application, the data need to be stored and send it to the downstream application for further processing how do you design this whole process?
 ### Can you explain Spring MVC flow?
+
+1. **Client Request**: The client sends a request to the server.
+2. **DispatcherServlet**: The request is received by the DispatcherServlet.
+3. **Handler Mapping**: DispatcherServlet consults HandlerMapping to find the appropriate Controller.
+4. **Controller**: The request is forwarded to the Controller.
+5. **Model**: The Controller processes the request, interacts with the Model, and prepares data.
+6. **View Resolver**: The Controller returns a View name to the DispatcherServlet.
+7. **Render View**: The ViewResolver resolves the view, and the DispatcherServlet renders it.
+8. **Response**: The rendered view is sent back to the client as the response.
+
+This flow ensures separation of concerns, making the application easier to manage and scale.
+
 ### What are the bean scopes available in spring? 
-### How do we create a single class java methodology?
-### how do we block the bad request before reaching the controller?
+
+1. **Singleton**: One instance per Spring container (default scope).
+2. **Prototype**: A new instance for each request.
+3. **Request**: One instance per HTTP request (only for web applications).
+4. **Session**: One instance per HTTP session (only for web applications).
+5. **Application**: One instance per ServletContext (only for web applications).
+6. **WebSocket**: One instance per WebSocket (only for web applications).
+
+### How do we create a singleton class java methodology?
+1. **Private Constructor**: Prevents instantiation from other classes.
+2. **Private Static Instance**: Holds the single instance of the class.
+3. **Public Static Method**: Provides a global access point to the instance.
+
+```java
+public class Singleton {
+    // Private static instance
+    private static Singleton instance;
+    
+    // Private constructor
+    private Singleton() {}
+
+    // Public method to provide access to the instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+```
+
+### How do we block the bad request before reaching the controller?
+
+You can use an interceptor or a filter
+
+1. **Create Interceptor**: Implement `HandlerInterceptor` and override `preHandle` method.
+2. **Configure Interceptor**: Register the interceptor in a configuration class.
+
+```java
+public class RequestInterceptor implements HandlerInterceptor {
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        // Add logic to block bad requests
+        if (isBadRequest(request)) {
+            response.setStatus(HttpStatus.BAD_REQUEST.value());
+            return false;
+        }
+        return true;
+    }
+    
+    private boolean isBadRequest(HttpServletRequest request) {
+        // Define logic to determine if request is bad
+        return false; // Example logic
+    }
+}
+
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new RequestInterceptor());
+    }
+}
+```
+
 ### What is the purpose of using Kafka?
+
+Used for building real-time data pipelines and streaming applications 
+due to its robustness and scalability.
+
+1. **Real-Time Data Streaming**: Kafka is designed to handle real-time data feeds efficiently.
+2. **Scalability**: Kafka can handle large-scale data streams and is easily scalable horizontally.
+3. **Durability**: Kafka stores data reliably and durably using distributed log storage.
+4. **High Throughput**: Kafka provides high throughput for both publishing and subscribing.
+5. **Fault Tolerance**: Kafka replicates data across multiple servers to ensure fault tolerance.
+6. **Decoupling Systems**: Kafka decouples producers and consumers, enabling asynchronous communication.
+7. **Event Sourcing**: Kafka can be used for event sourcing, capturing changes in state as a sequence of events.
+8. **Stream Processing**: Kafka integrates with stream processing frameworks like Kafka Streams and Apache Flink for real-time data processing.
+
 ### What are the closures in JavaScript?
+
+**Closures in JavaScript**:
+
+1. **Definition**: A closure is a function that has access to its own scope, the scope of the outer function, and the global scope.
+2. **Scope Access**: Closures allow functions to access variables from an enclosing scope, even after the outer function has finished executing.
+
+```javascript
+function outerFunction() {
+    let outerVariable = 'I am from outer scope';
+
+    function innerFunction() {
+        console.log(outerVariable); // Accesses outerVariable from outerFunction
+    }
+
+    return innerFunction;
+}
+
+const closureFunction = outerFunction();
+closureFunction(); // Output: 'I am from outer scope'
+```
+**Use Cases**:
+Data Privacy: Encapsulating data and creating private variables.
+Callbacks: Passing functions as arguments and maintaining scope.
+Function Factories: Creating functions dynamically with specific environments.
+
 ### In a microservices architecture, if Service A is talking to Service B, how do you handle it? 
-### How do you declare a singleton class?
+
+1. **RESTful APIs**:
+    - **HTTP/HTTPS**: Service A calls Service B using standard HTTP/HTTPS protocols.
+    - **Endpoints**: Define and expose RESTful endpoints in Service B.
+    - **Tools**: Use tools like Postman for testing and Swagger for API documentation.
+
+```java
+// Example using Spring RestTemplate in Service A
+@RestController
+public class ServiceAController {
+    
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @GetMapping("/callServiceB")
+    public String callServiceB() {
+        String serviceBResponse = restTemplate.getForObject("http://service-b/api/resource", String.class);
+        return serviceBResponse;
+    }
+}
+
+@Bean
+public RestTemplate restTemplate() {
+    return new RestTemplate();
+}
+```
+
+2. **Service Discovery**:
+   - **Registry**: Use a service registry like Eureka, Consul, or Zookeeper to manage service instances.
+   - **Discovery Client**: Service A can dynamically discover Service B using the registry.
+
+```java
+// Example using Spring Cloud Netflix Eureka
+@EnableEurekaClient
+@SpringBootApplication
+public class ServiceAApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(ServiceAApplication.class, args);
+    }
+}
+
+@Service
+public class ServiceA {
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    public String callServiceB() {
+        List<ServiceInstance> instances = discoveryClient.getInstances("service-b");
+        ServiceInstance serviceBInstance = instances.get(0);
+        String serviceBUrl = serviceBInstance.getUri().toString() + "/api/resource";
+        return restTemplate.getForObject(serviceBUrl, String.class);
+    }
+}
+```
+3. **Message Brokers**:
+   - **Asynchronous Communication**: Use message brokers like Kafka, RabbitMQ, or AWS SQS for asynchronous communication.
+   - **Event-Driven**: Service A publishes messages/events to a topic/queue, and Service B subscribes to them.
+
 ### In Spring, what are the different singleton beans available?
+
+In Spring, there are primarily two types of singleton beans:
+
+1. **Default Singleton Beans**:
+    - Created once per Spring IoC container.
+    - Typical scope for beans unless specified otherwise.
+
+2. **Lazy Initialization Singleton Beans**:
+    - Created when first requested, rather than at container startup.
+    - Defined using `@Lazy` annotation or `lazy-init="true"` in XML configuration.
+
 ### What is the default scope of beans in Spring?
+
+The default scope of beans in Spring is **singleton**.
+
+This means that Spring creates and manages only one instance of 
+the bean per Spring IoC container.
+
 ### What is dependency injection?
-### When making an HTTP request, there are some headers coming in. 
+
+Dependency Injection (DI) is a design pattern in which the dependencies 
+of a class are provided externally rather than created within the class itself.
+
+It helps in achieving *loose coupling* between classes by allowing dependencies 
+to be injected from outside
+
+Typically through:
+- constructor injection
+- setter injection 
+- field injection
+
+
+[//]: # (When making an HTTP request, there are some headers coming in. )
+
 ### How do you validate the headers before they reach the controller?
+
+To validate HTTP headers before they reach the controller in a Spring application, you can use a `HandlerInterceptor` or a `Filter`:
+
+1. **HandlerInterceptor Approach**:
+   - Implement `HandlerInterceptor` and override `preHandle` method.
+   - Register the interceptor in a configuration class.
+
+   Example:
+
+   ```java
+   public class HeaderValidationInterceptor implements HandlerInterceptor {
+       
+       @Override
+       public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+           // Validate headers here
+           if (!isValidHeaders(request)) {
+               response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid headers");
+               return false;
+           }
+           return true;
+       }
+       
+       private boolean isValidHeaders(HttpServletRequest request) {
+           // Implement header validation logic
+           return true;
+       }
+   }
+   
+   @Configuration
+   public class WebConfig implements WebMvcConfigurer {
+       
+       @Override
+       public void addInterceptors(InterceptorRegistry registry) {
+           registry.addInterceptor(new HeaderValidationInterceptor()).addPathPatterns("/**");
+       }
+   }
+   ```
+2. **Filter Approach**:
+
+- Implement Filter and override doFilter method.
+- Register the filter in a configuration class.
+**Example**:
+
+```java
+public class HeaderValidationFilter implements Filter {
+    
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        
+        // Validate headers here
+        if (!isValidHeaders(httpRequest)) {
+            httpResponse.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid headers");
+            return;
+        }
+        
+        chain.doFilter(request, response);
+    }
+    
+    private boolean isValidHeaders(HttpServletRequest request) {
+        // Implement header validation logic
+        return true;
+    }
+}
+
+@Configuration
+public class FilterConfig {
+    
+    @Bean
+    public FilterRegistrationBean<HeaderValidationFilter> headerValidationFilter() {
+        FilterRegistrationBean<HeaderValidationFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new HeaderValidationFilter());
+        registrationBean.addUrlPatterns("/*");
+        return registrationBean;
+    }
+}
+
+```
+
 ### Explain the process/flow of MVC.
-### SQL question: What is the difference between the "WHERE" clause and the "HAVING"; clause?
+
+The MVC (Model-View-Controller) architectural pattern divides an application into three interconnected components:
+
+1. **Model**:
+   - Represents the data and business logic of the application.
+   - Interacts with the database or other data sources.
+   - Often consists of POJOs (Plain Old Java Objects) or entities.
+
+2. **View**:
+   - Represents the presentation layer of the application.
+   - Displays the data from the Model to the user.
+   - Typically consists of HTML, JSP, Thymeleaf templates, etc.
+
+3. **Controller**:
+   - Handles user requests and acts as an intermediary between Model and View.
+   - Processes incoming requests, retrieves data from the Model, and selects the appropriate View to render the response.
+   - Typically consists of Java classes annotated with `@Controller` in Spring MVC.
+
+### Flow of MVC:
+
+1. **Client Request**:
+   - The user interacts with the application through a web browser or client-side application.
+   - Sends a request to the server.
+
+2. **DispatcherServlet**:
+   - Central front controller in Spring MVC.
+   - Receives all incoming requests.
+   - Acts as the entry point for all requests, managing the flow of requests to the appropriate controllers.
+
+3. **Handler Mapping**:
+   - DispatcherServlet consults the HandlerMapping to determine which controller should handle the request based on the URL pattern.
+
+4. **Controller**:
+   - DispatcherServlet dispatches the request to the appropriate controller based on the mapping.
+   - Controller processes the request, interacts with the Model to retrieve or update data.
+
+5. **Model**:
+   - Contains the application's data and business logic.
+   - Controller interacts with the Model to retrieve or update data as required by the request.
+
+6. **View Resolver**:
+   - After processing the request, the Controller returns the name of the View to the DispatcherServlet.
+   - ViewResolver resolves the logical View name to an actual View (JSP, Thymeleaf template, etc.).
+
+7. **Render View**:
+   - The resolved View is rendered to generate the response.
+   - Populates the view with data from the Model (if necessary).
+
+8. **Response**:
+   - The rendered View is sent back to the client as the HTTP response.
+   - Client sees the updated UI or response based on the initial request.
+
+This flow ensures separation of concerns, where each component (Model, View, Controller) handles 
+a specific aspect of the application's functionality, promoting modularity, maintainability, and testability.
+
 ### You have a complex SQL query with slow performance. How would you optimize the given query?
+
+To optimize a complex SQL query with slow performance, here are several approaches:
+
+1. **Index Optimization**:
+   - Identify columns used in WHERE, JOIN, and ORDER BY clauses.
+   - Add appropriate indexes to these columns to speed up data retrieval.
+   - Avoid over-indexing, as it can impact write performance.
+
+2. **Query Rewriting**:
+   - Analyze the query execution plan using `EXPLAIN` (or equivalent) to identify bottlenecks.
+   - Rewrite the query to use efficient JOINs, subqueries, and WHERE conditions.
+   - Simplify complex logic and eliminate unnecessary calculations.
+
+3. **Data Normalization and Denormalization**:
+   - Normalize tables to reduce redundancy and improve data integrity.
+   - Denormalize tables for read-heavy operations to reduce JOIN operations.
+
+4. **Use of Caching**:
+   - Utilize caching mechanisms (application-level caching, query result caching, etc.) to store frequently accessed data.
+   - Reduces database load and improves response time for repetitive queries.
+
+5. **Query and Index Statistics**:
+   - Update statistics regularly to help the query optimizer generate efficient execution plans.
+   - Monitor and analyze query execution times and adjust indexing strategies accordingly.
+
+6. **Database Schema and Configuration Tuning**:
+   - Adjust database configuration parameters such as memory allocation, buffer sizes, and parallelism settings.
+   - Ensure optimal configuration for the underlying hardware and storage.
+
+7. **Query Optimization Techniques**:
+   - Use appropriate SQL constructs like EXISTS, IN, and NOT EXISTS instead of NOT IN for better performance.
+   - Limit the use of DISTINCT and ORDER BY clauses if possible.
+
+8. **Partitioning**:
+   - Partition large tables based on criteria such as date range or key ranges to improve query performance.
+   - Distribute data across multiple physical storage devices.
+
+9. **Review and Optimize Application Code**:
+   - Check application code for inefficient data retrieval patterns.
+   - Optimize ORM mappings and data access patterns to minimize unnecessary queries.
+
+10. **Database Tuning Tools**:
+   - Utilize database-specific tuning tools and profilers to identify performance bottlenecks.
+   - Monitor database performance metrics and optimize based on findings.
+
+By systematically applying these optimization techniques, the performance of a complex 
+SQL query can be significantly improved.
+
+Ensuring efficient data retrieval and application responsiveness.
+
 ### In Java, how do hash maps work internally? 
+
+In Java, `HashMap` works internally using an array of linked lists (also known as buckets). Here’s a concise explanation of how `HashMap` operates internally:
+
+* **Hashing**: Converts keys to array indices.
+* **Buckets**: Array of linked lists (or trees) to handle collisions.
+* **Collision Handling**: Linked lists for small collisions, trees for larger collisions.
+* **Resizing**: Dynamically adjusts size to maintain performance.
+
+1. **Hashing**:
+   - When a key-value pair is inserted, the key’s hash code is computed using the `hashCode()` method.
+   - The hash code is then transformed into an array index using the formula: `index = hashCode % arrayLength`.
+
+2. **Buckets**:
+   - The array index determines which bucket (linked list) will store the entry.
+   - Each bucket can store multiple entries to handle hash collisions (when different keys produce the same index).
+
+3. **Entry (Node) Structure**:
+   - Each entry in the `HashMap` is represented by a `Node` (or `Entry`) object.
+   - The `Node` contains the key, value, hash code, and a reference to the next `Node` in the bucket (linked list).
+
+4. **Collision Handling**:
+   - If a collision occurs (multiple keys hash to the same bucket), the new entry is added to the linked list within that bucket.
+   - Java 8 and later versions convert linked lists to balanced trees (red-black trees) if the number of entries in a bucket exceeds a certain threshold (`TREEIFY_THRESHOLD`) to improve lookup performance.
+
+5. **Retrieval**:
+   - To retrieve a value, the key’s hash code is computed and the appropriate bucket is located using the same hash code transformation.
+   - The bucket is traversed (or the tree is searched) to find the entry with the matching key.
+
+6. **Resizing**:
+   - When the number of entries exceeds the product of the load factor and the current capacity (`loadFactor * capacity`), the `HashMap` is resized (doubled in size) to maintain efficient performance.
+   - During resizing, all entries are rehashed and redistributed into the new array of buckets.
+
+**Example**:
+
+```java
+public class HashMapExample {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Insert key-value pairs
+        map.put("one", 1);
+        map.put("two", 2);
+        map.put("three", 3);
+
+        // Retrieve values
+        System.out.println(map.get("one"));   // Output: 1
+        System.out.println(map.get("two"));   // Output: 2
+        System.out.println(map.get("three")); // Output: 3
+    }
+}
+```
+
 ### In what scenarios do we use Comparable?
+
+We use `Comparable` in Java in the following scenarios:
+
+1. **Sorting Collections**:
+   - To sort a collection of objects using `Collections.sort()` or `Arrays.sort()`.
+   - Example:
+     ```java
+     public class Person implements Comparable<Person> {
+         private String name;
+         private int age;
+
+         public Person(String name, int age) {
+             this.name = name;
+             this.age = age;
+         }
+
+         @Override
+         public int compareTo(Person other) {
+             return this.age - other.age; // Sort by age
+         }
+     }
+
+     List<Person> people = new ArrayList<>();
+     people.add(new Person("Alice", 30));
+     people.add(new Person("Bob", 25));
+     Collections.sort(people); // Sorts by age
+     ```
+
+2. **TreeSet and TreeMap**:
+   - When using `TreeSet` or `TreeMap`, elements or keys must implement `Comparable` to maintain order.
+   - Example:
+     ```java
+     TreeSet<Person> personSet = new TreeSet<>();
+     personSet.add(new Person("Alice", 30));
+     personSet.add(new Person("Bob", 25));
+     ```
+
+3. **PriorityQueue**:
+   - Elements in a `PriorityQueue` must implement `Comparable` to determine their natural ordering.
+   - Example:
+     ```java
+     PriorityQueue<Person> queue = new PriorityQueue<>();
+     queue.add(new Person("Alice", 30));
+     queue.add(new Person("Bob", 25));
+     ```
+
+These scenarios leverage `Comparable` to define and maintain a natural ordering of objects.
+
+
 ### How do your secure REST APIs?
 ### What are the AWS services you have experience with?
 ### Explain the CI/CD flow
-### In a microservices architecture, if Service A is talking to Service B, how do you handle it?
-### In Spring, what are the different singleton beans available? What is the default scope of beans in Spring?
-### is dependency injection?
-### When making an HTTP request, there are some headers coming in. 
-### How do you validate the headers before they reach the controller? 
 ### Explain the process/flow of MVC.
-### What is the difference between the "WHERE" clause and the "HAVING"clause?
+### What is the difference between the "WHERE" clause and the "HAVING" clause?
 ### You have a complex SQL query with slow performance.
 ### How would you optimize the given query?
 ### In Java, how do hash maps work internally?
