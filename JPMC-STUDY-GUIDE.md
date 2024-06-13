@@ -567,6 +567,41 @@ These scenarios leverage `Comparable` to define and maintain a natural ordering 
 
 
 ### How do your secure REST APIs?
+
+Securing REST APIs involves multiple layers of security measures to ensure data integrity, confidentiality, and authentication. Here are some key methods:
+
+1. **Authentication and Authorization**:
+   - **OAuth2**: Use OAuth2 for token-based authentication.
+   - **JWT (JSON Web Tokens)**: Issue JWT tokens for stateless authentication.
+   - [SecurityConfig.java](demo%2Fsrc%2Fmain%2Fjava%2Fcom%2Fdcat23%2Fspring%2Fdemo%2Fconfig%2FSecurityConfig.java)
+
+2. **HTTPS**:
+   - Use HTTPS to encrypt data in transit.
+   - Example: Configure your server (e.g., Tomcat, Nginx) to use HTTPS with a valid SSL certificate.
+
+3. **API Key**:
+   - Implement API key authentication for public APIs.
+   - [ApiKeyFilter.java](demo%2Fsrc%2Fmain%2Fjava%2Fcom%2Fdcat23%2Fspring%2Fdemo%2Fconfig%2FApiKeyFilter.java)
+
+4. **Rate Limiting**:
+   - Implement rate limiting to prevent abuse and DoS attacks.
+   - Example: Use a library like Bucket4j or an API gateway like Kong.
+
+5. **Input Validation**:
+   - Validate all incoming data to prevent SQL injection, XSS, and other injection attacks.
+   - [Example: Use validation annotations in Spring.](demo/src/main/java/com/dcat23/spring/demo/model/User.java)
+
+6. **CORS (Cross-Origin Resource Sharing)**:
+   - Configure CORS to control which domains can access your API.
+   - [CorsConfig.java](demo%2Fsrc%2Fmain%2Fjava%2Fcom%2Fdcat23%2Fspring%2Fdemo%2Fconfig%2FCorsConfig.java)
+
+7. **Logging and Monitoring**:
+   - Implement logging and monitoring to detect and respond to suspicious activities.
+   - Example: Use tools like ELK stack (Elasticsearch, Logstash, Kibana) or Prometheus and Grafana.
+
+By combining these methods, you can effectively secure your REST APIs and protect your application from various security threats.
+
+
 ### What are the AWS services you have experience with?
 ### Explain the CI/CD flow
 ### Explain the process/flow of MVC.
