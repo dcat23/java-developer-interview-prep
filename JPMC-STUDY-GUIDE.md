@@ -282,79 +282,16 @@ To validate HTTP headers before they reach the controller in a Spring applicatio
 1. **HandlerInterceptor Approach**:
    - Implement `HandlerInterceptor` and override `preHandle` method.
    - Register the interceptor in a configuration class.
+   - **Example**:
+     - [HeaderValidationInterceptor.java](demo%2Fsrc%2Fmain%2Fjava%2Fcom%2Fdcat23%2Fspring%2Fdemo%2FheaderValidation%2FHeaderValidationInterceptor.java)
+     - [WebConfig.java](demo%2Fsrc%2Fmain%2Fjava%2Fcom%2Fdcat23%2Fspring%2Fdemo%2FheaderValidation%2FWebConfig.java)
 
-   Example:
-
-   ```java
-   public class HeaderValidationInterceptor implements HandlerInterceptor {
-       
-       @Override
-       public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-           // Validate headers here
-           if (!isValidHeaders(request)) {
-               response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid headers");
-               return false;
-           }
-           return true;
-       }
-       
-       private boolean isValidHeaders(HttpServletRequest request) {
-           // Implement header validation logic
-           return true;
-       }
-   }
-   
-   @Configuration
-   public class WebConfig implements WebMvcConfigurer {
-       
-       @Override
-       public void addInterceptors(InterceptorRegistry registry) {
-           registry.addInterceptor(new HeaderValidationInterceptor()).addPathPatterns("/**");
-       }
-   }
-   ```
 2. **Filter Approach**:
-
-- Implement Filter and override doFilter method.
-- Register the filter in a configuration class.
-**Example**:
-
-```java
-public class HeaderValidationFilter implements Filter {
-    
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
-        
-        // Validate headers here
-        if (!isValidHeaders(httpRequest)) {
-            httpResponse.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid headers");
-            return;
-        }
-        
-        chain.doFilter(request, response);
-    }
-    
-    private boolean isValidHeaders(HttpServletRequest request) {
-        // Implement header validation logic
-        return true;
-    }
-}
-
-@Configuration
-public class FilterConfig {
-    
-    @Bean
-    public FilterRegistrationBean<HeaderValidationFilter> headerValidationFilter() {
-        FilterRegistrationBean<HeaderValidationFilter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new HeaderValidationFilter());
-        registrationBean.addUrlPatterns("/*");
-        return registrationBean;
-    }
-}
-
-```
+   - Implement Filter and override doFilter method.
+   - Register the filter in a configuration class.
+   - **Example**:
+   - [HeaderValidationFilter.java](demo%2Fsrc%2Fmain%2Fjava%2Fcom%2Fdcat23%2Fspring%2Fdemo%2FheaderValidation%2FHeaderValidationFilter.java)
+   - [FilterConfig.java](demo%2Fsrc%2Fmain%2Fjava%2Fcom%2Fdcat23%2Fspring%2Fdemo%2FheaderValidation%2FFilterConfig.java)
 
 ### Explain the process/flow of MVC.
 
