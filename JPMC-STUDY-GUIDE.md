@@ -543,15 +543,47 @@ By combining these methods, you can effectively secure your REST APIs and protec
 
 ### Explain the CI/CD flow
 
-Continuous Integration and Continuous Deployment (CI/CD) are practices in
-software development that enable frequent, reliable, and automated code 
-changes. 
+Continuous Integration and Continuous Deployment practices enable 
+frequent, reliable, and automated code changes. 
 
 #### CI/CD Pipeline Example with Jenkins
 
 - **CI** focuses on integrating code changes frequently, with automated testing to catch issues early.
 - **CD** ensures that code is always in a deployable state and automates deployment to staging and production environments.
 - **Automation** is key in both CI and CD to reduce manual effort and increase reliability.
+- **Jenkinsfile**:
+    ```groovy
+    pipeline {
+        agent any
+        stages {
+            stage('Build') {
+                steps {
+                    sh 'mvn clean package'
+                }
+            }
+            stage('Test') {
+                steps {
+                    sh 'mvn test'
+                }
+            }
+            stage('Deploy to Staging') {
+                steps {
+                    deploy to: 'staging'
+                }
+            }
+            stage('Approval') {
+                steps {
+                    input 'Deploy to Production?'
+                }
+            }
+            stage('Deploy to Production') {
+                steps {
+                    deploy to: 'production'
+                }
+            }
+        }
+    }
+    ```
 
 1. **Continuous Integration (CI)**
 
@@ -594,50 +626,40 @@ changes.
 - **CD Tools**: Spinnaker, Argo CD, Octopus Deploy.
 - **Version Control**: Git (GitHub, GitLab, Bitbucket).
 
-**Jenkinsfile**:
- ```groovy
- pipeline {
-     agent any
-     stages {
-         stage('Build') {
-             steps {
-                 sh 'mvn clean package'
-             }
-         }
-         stage('Test') {
-             steps {
-                 sh 'mvn test'
-             }
-         }
-         stage('Deploy to Staging') {
-             steps {
-                 deploy to: 'staging'
-             }
-         }
-         stage('Approval') {
-             steps {
-                 input 'Deploy to Production?'
-             }
-         }
-         stage('Deploy to Production') {
-             steps {
-                 deploy to: 'production'
-             }
-         }
-     }
- }
- ```
-
 By implementing CI/CD, development teams can deliver software more quickly, 
 with higher quality and reliability.
 
 ### What is the difference between the "WHERE" clause and the "HAVING" clause?
-### You have a complex SQL query with slow performance.
-### How would you optimize the given query?
+
+Both are used to filter records in SQL queries
+
+#### `WHERE` Clause
+- **Purpose**: Filters rows before any grouping is done.
+- **Usage**: Applies to individual rows.
+- **Context**: Used with `SELECT`, `UPDATE`, `DELETE` statements.
+- **Aggregate Functions**: Cannot use aggregate functions directly.
+
+Example:
+```sql
+SELECT * FROM employees
+WHERE salary > 50000;
+```
+
+#### `HAVING` Clause
+- **Purpose**: Filters groups after the grouping is done.
+- **Usage**: Applies to grouped rows.
+- **Context**: Used with SELECT statements that include GROUP BY.
+- **Aggregate Functions**: Can use aggregate functions.
+
+- **Example**:
+   ```sql
+   SELECT department, AVG(salary) as avg_salary
+   FROM employees
+   GROUP BY department
+   HAVING AVG(salary) > 60000;
+   ```
+
 ### In Java, how do hash maps work internally?
-### In what scenarios do we use Comparable? 
-### How do your secure REST APIs?
-### What are the AWS services you have experience with? 
 ### What are the storage levels for S3, and what are the storage patterns?
 
 
