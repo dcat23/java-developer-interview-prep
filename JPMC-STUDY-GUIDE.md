@@ -26,18 +26,24 @@
 
 ## Responsibilities
 - A clear communicator who is curious and embraces continuous improvement
+
 - Independently delivers high-quality, testable, and maintainable code 
 within planned timeframes
+
 - Design and build support for non-functional requirements such as security, 
 performance, resiliency, fault-tolerance, monitoring, alerting, reporting, etc.
 
 - Apply system thinking and methodologies, to decompose complex use cases into 
 elegant solutions
+
 - Analyze, design, develop, and troubleshoot with consideration of upstream 
 and downstream systems and technical implications
+
 - Drive requirements discussions with a consultative and solution-oriented 
 approach with ability to influence
+
 - Apply knowledge of tools within the SDLC toolchain to apply automation
+
 - Add to a team culture of diversity, equity, inclusion, and respect
 
 
@@ -57,10 +63,15 @@ AWS Cloud experience
 
 ## Questions
 
-### Tell me something about your experience.
-### How were you deploying applications?
-### Brief us about your exp and tech stacks currently using or used in the recent project?
+1. Tell me something about your experience.
+2. How were you deploying applications?
+3. Brief us about your exp and tech stacks currently using or used in the recent project?
+4. What are the AWS services you have experience with?
+
 ### I have a UI application, the data need to be stored and send it to the downstream application for further processing how do you design this whole process?
+
+## Technical Questions
+
 ### Can you explain Spring MVC flow?
 
 1. **Client Request**: The client sends a request to the server.
@@ -501,7 +512,6 @@ We use `Comparable` in Java in the following scenarios:
 
 These scenarios leverage `Comparable` to define and maintain a natural ordering of objects.
 
-
 ### How do your secure REST APIs?
 
 Securing REST APIs involves multiple layers of security measures to ensure data integrity, confidentiality, and authentication. Here are some key methods:
@@ -536,9 +546,6 @@ Securing REST APIs involves multiple layers of security measures to ensure data 
    - Example: Use tools like ELK stack (Elasticsearch, Logstash, Kibana) or Prometheus and Grafana.
 
 By combining these methods, you can effectively secure your REST APIs and protect your application from various security threats.
-
-
-### What are the AWS services you have experience with?
 
 ### Explain the CI/CD flow
 
@@ -658,8 +665,56 @@ WHERE salary > 50000;
    HAVING AVG(salary) > 60000;
    ```
 
-### In Java, how do hash maps work internally?
 ### What are the storage levels for S3, and what are the storage patterns?
 
+#### Amazon S3 Storage Classes
+
+1. **S3 Standard**
+   - **Use Case**: Frequently accessed data.
+   - **Features**: Low latency, high throughput, high durability (99.999999999%).
+
+2. **S3 Intelligent-Tiering**
+   - **Use Case**: Unknown or unpredictable access patterns.
+   - **Features**: Automatically moves data between two access tiers (frequent and infrequent) based on changing access patterns.
+
+3. **S3 Standard-IA (Infrequent Access)**
+   - **Use Case**: Data that is less frequently accessed but requires rapid access when needed.
+   - **Features**: Lower cost compared to S3 Standard, with a retrieval fee.
+
+4. **S3 One Zone-IA**
+   - **Use Case**: Infrequently accessed data stored in a single Availability Zone.
+   - **Features**: Lower cost compared to S3 Standard-IA, suitable for data that can be recreated if lost.
+
+5. **S3 Glacier**
+   - **Use Case**: Archive data that is infrequently accessed and retrieval times of minutes to hours are acceptable.
+   - **Features**: Very low cost, suitable for long-term backups and archives.
+
+6. **S3 Glacier Deep Archive**
+   - **Use Case**: Long-term archival with retrieval times of hours.
+   - **Features**: Lowest cost storage, suitable for data that rarely needs to be accessed.
+
+#### Storage Patterns
+
+1. **Active Storage**:
+   - **Use Case**: Frequently accessed, dynamic content such as media files, logs, or data used in real-time applications.
+   - **Storage Class**: S3 Standard or S3 Intelligent-Tiering.
+
+2. **Backup and Restore**:
+   - **Use Case**: Regularly backed up data, with infrequent restores.
+   - **Storage Class**: S3 Standard-IA, S3 One Zone-IA.
+
+3. **Archive**:
+   - **Use Case**: Long-term data retention for compliance, historical records.
+   - **Storage Class**: S3 Glacier, S3 Glacier Deep Archive.
+
+4. **Big Data Analytics**:
+   - **Use Case**: Data lakes for large-scale data analytics.
+   - **Storage Class**: S3 Standard or S3 Intelligent-Tiering.
+
+5. **Disaster Recovery**:
+   - **Use Case**: Data replication for disaster recovery.
+   - **Storage Class**: S3 Standard-IA, S3 One Zone-IA for secondary copies.
+
+You can optimize costs and performance based on your data access needs and lifecycle requirements.
 
 ## System Design

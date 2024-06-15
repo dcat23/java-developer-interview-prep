@@ -1,4 +1,4 @@
-package com.dcat23.spring.demo.config;
+package com.dcat23.spring.demo.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

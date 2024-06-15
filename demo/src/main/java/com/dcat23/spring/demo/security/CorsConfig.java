@@ -1,4 +1,4 @@
-package com.dcat23.spring.demo.config;
+package com.dcat23.spring.demo.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
