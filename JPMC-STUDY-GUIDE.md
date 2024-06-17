@@ -1,28 +1,39 @@
 # JPMC Study Guide
 
 ## Table of Contents
-* [Can you explain Spring MVC flow?](#can-you-explain-spring-mvc-flow)
-* [What are the bean scopes available in spring?](#what-are-the-bean-scopes-available-in-spring)
-* [How do we create a single class java methodology?](#how-do-we-create-a-single-class-java-methodology)
-* [How do we block the bad request before reaching the controller?](#how-do-we-block-the-bad-request-before-reaching-the-controller)
-* [What is the purpose of using Kafka?](#what-is-the-purpose-of-using-kafka)
-* [What are the closures in JavaScript?](#what-are-the-closures-in-javascript)
-* [Microservices: if Service A is talking to Service B, how do you handle it?](#in-a-microservices-architecture-if-service-a-is-talking-to-service-b-how-do-you-handle-it)
-* [How do you declare a singleton class?](#how-do-you-declare-a-singleton-class)
-* [In Spring, what are the different singleton beans available?](#in-spring-what-are-the-different-singleton-beans-available)
-* [What is the default scope of beans in Spring?](#what-is-the-default-scope-of-beans-in-spring)
-* [What is dependency injection?](#what-is-dependency-injection)
-* [How do you validate the headers before they reach the controller?](#how-do-you-validate-the-headers-before-they-reach-the-controller)
-* [Explain the process/flow of MVC.](#explain-the-processflow-of-mvc)
-* [SQL: Difference between the "WHERE" and "HAVING" clause?](#sql-question-what-is-the-difference-between-the-where-clause-and-the-having-clause)
-* [You have a complex SQL query with slow performance. How would you optimize the given query?](#you-have-a-complex-sql-query-with-slow-performance-how-would-you-optimize-the-given-query)
-* [In Java, how do hash maps work internally?](README.md#how-hashmap-works-internally)
-* [In what scenarios do we use Comparable?](#in-what-scenarios-do-we-use-comparable)
-* [How do you secure REST APIs?](#how-do-you-secure-rest-apis)
-* [What are the AWS services you have experience with?](#what-are-the-aws-services-you-have-experience-with)
-* [Explain the CI/CD flow.](#explain-the-cicd-flow)
-* [What are the storage levels for S3, and what are the storage patterns?](#what-are-the-storage-levels-for-s3-and-what-are-the-storage-patterns)
-
+* [Experience Questions](#experience-questions)
+  * [Tell me something about your experience.](#tell-me-something-about-your-experience)
+  * [How were you deploying applications?](#how-were-you-deploying-applications)
+  * [Brief us about your exp and tech stacks currently using or used in the recent project?](#brief-us-about-your-exp-and-tech-stacks-currently-using-or-used-in-the-recent-project)
+* [Technical Questions](#technical-questions)
+  * [Can you explain Spring MVC flow?](#can-you-explain-spring-mvc-flow)
+  * [What are the bean scopes available in spring?](#what-are-the-bean-scopes-available-in-spring)
+  * [How do we create a single class java methodology?](#how-do-we-create-a-single-class-java-methodology)
+  * [How do we block the bad request before reaching the controller?](#how-do-we-block-the-bad-request-before-reaching-the-controller)
+  * [What is the purpose of using Kafka?](#what-is-the-purpose-of-using-kafka)
+  * [What are the closures in JavaScript?](#what-are-the-closures-in-javascript)
+  * [Microservices: if Service A is talking to Service B, how do you handle it?](#in-a-microservices-architecture-if-service-a-is-talking-to-service-b-how-do-you-handle-it)
+  * [How do you declare a singleton class?](#how-do-you-declare-a-singleton-class)
+  * [In Spring, what are the different singleton beans available?](#in-spring-what-are-the-different-singleton-beans-available)
+  * [What is the default scope of beans in Spring?](#what-is-the-default-scope-of-beans-in-spring)
+  * [What is dependency injection?](#what-is-dependency-injection)
+  * [How do you validate the headers before they reach the controller?](#how-do-you-validate-the-headers-before-they-reach-the-controller)
+  * [Explain the process/flow of MVC.](#explain-the-processflow-of-mvc)
+  * [SQL: Difference between the "WHERE" and "HAVING" clause?](#sql-question-what-is-the-difference-between-the-where-clause-and-the-having-clause)
+  * [You have a complex SQL query with slow performance. How would you optimize the given query?](#you-have-a-complex-sql-query-with-slow-performance-how-would-you-optimize-the-given-query)
+  * [In Java, how do hash maps work internally?](README.md#how-hashmap-works-internally)
+  * [In what scenarios do we use Comparable?](#in-what-scenarios-do-we-use-comparable)
+  * [How do you secure REST APIs?](#how-do-you-secure-rest-apis)
+  * [What are the AWS services you have experience with?](#what-are-the-aws-services-you-have-experience-with)
+  * [Explain the CI/CD flow.](#explain-the-cicd-flow)
+  * [What are the storage levels for S3, and what are the storage patterns?](#what-are-the-storage-levels-for-s3-and-what-are-the-storage-patterns)
+  * [JPA](#java-persistence-api)
+  * [Hibernate](#hibernate)
+* [Resources](#resources)
+  * [Java Interview Questions for 5 years Experience](https://www.interviewbit.com/java-interview-questions-for-5-years-experience/)
+    * [Differentiate between Volatile and Transient Variable in Java.](#differentiate-between-volatile-and-transient-variable-in-java)
+    * [Differentiate between the Vector and ArrayList collections in Java.](#differentiate-between-the-vector-and-arraylist-collections-in-java)
+    * [What do you understand by the `...` in the below method parameters?](#what-do-you-understand-by-the--in-the-below-method-parameters)
 
 ## Responsibilities
 - A clear communicator who is curious and embraces continuous improvement
@@ -46,7 +57,6 @@ approach with ability to influence
 
 - Add to a team culture of diversity, equity, inclusion, and respect
 
-
 ## Required qualifications, capabilities, and skills
 
 - Formal training or certification on software engineering concepts 
@@ -61,12 +71,85 @@ npm, Maven
 - Experience with agile and scrum processes applicable to product development and delivery
 AWS Cloud experience
 
-## Questions
+## Experience Questions
 
-1. Tell me something about your experience.
-2. How were you deploying applications?
-3. Brief us about your exp and tech stacks currently using or used in the recent project?
-4. What are the AWS services you have experience with?
+### Tell me something about your experience.
+    I have extensive experience as a Java developer, particularly in developing 
+    web services and implementing backend functionalities. 
+
+In my recent project, the Loan Approval and Payment system, I was involved in 
+creating Spring Boot web services to facilitate loan processing and payment setup.
+
+I designed JSON structures for seamless data transfer between the React frontend
+and the business tier, to ensure efficient and secure communication. 
+
+Additionally, I worked with Hibernate to configure ORM mappings and developed 
+DAO classes to interact with the database. 
+
+I utilized Spring DAO and Hibernate templates to write and optimize queries
+for data access.
+
+To maintain high code quality and ensure reliability, I created comprehensive 
+unit tests using JUnit and integrated these tests into our CI/CD pipeline using Jenkins,
+supporting continuous integration and testing.
+
+### How were you deploying applications?
+    In our project, we deployed applications using Jenkins 
+    as part of our CI/CD pipeline. 
+
+1. **Build Automation**: Jenkins was configured to automatically trigger builds whenever changes were pushed to the repository. This included compiling the code, running unit tests, and packaging the application into deployable artifacts, such as WAR or JAR files.
+
+2. **Containerization**: For consistency and ease of deployment, we used Docker to containerize our applications. Docker images were built from the packaged artifacts, ensuring that our applications ran in the same environment across different stages.
+
+3. **Deployment to Servers**: The Docker images were then pushed to a container registry and subsequently deployed to our staging and production environments. We used Kubernetes for orchestration, which allowed us to manage and scale our containerized applications efficiently.
+
+4. **Continuous Monitoring and Rollbacks**: Jenkins monitored the deployment process and, in case of any failures, provided notifications and logs for quick troubleshooting. We also implemented rollback mechanisms to revert to previous stable versions if needed.
+
+This automated deployment pipeline ensured that our applications were reliably and consistently deployed, reducing downtime and manual intervention.
+
+### Brief us about your exp and tech stacks currently using or used in the recent project?
+    In my recent project, the Loan Approval and Payment system, I worked extensively
+    with the following technologies:
+
+- **Spring Boot**: I developed various web services to handle loan processing and payment setup, leveraging Spring Boot's ease of configuration and robust features for creating RESTful APIs.
+
+- **Hibernate**: I used Hibernate for ORM, creating configuration files and DAO classes to interact with the database. This included writing HQL queries and managing entity relationships.
+
+- **Spring DAO**: I utilized Spring DAO for data access operations, implementing templates to streamline the creation of data access layers and ensure efficient database interactions.
+
+- **React**: Although my primary focus was on the backend, I collaborated closely with frontend developers working with React. I designed JSON structures to facilitate data transfer between the frontend and the backend.
+
+- **JUnit**: I created unit tests using JUnit to ensure the reliability and correctness of the codebase. These tests were crucial for maintaining code quality and preventing regressions.
+
+- **Jenkins**: I integrated our unit tests into a CI/CD pipeline using Jenkins, which automated the building, testing, and deployment processes. This ensured continuous integration and delivery, allowing for rapid and reliable releases.
+
+- **Docker**: For deployment, I containerized our applications using Docker. This ensured consistency across different environments and made scaling and orchestration more manageable.
+
+- **Kubernetes**: We used Kubernetes for container orchestration, managing deployment, scaling, and operations of application containers across clusters of hosts.
+
+Overall, my experience with this tech stack enabled me to contribute effectively to the development and deployment of the Loan Approval and Payment system, ensuring robust performance and high availability.
+
+### What are the AWS services you have experience with?
+    In my recent project, I had the opportunity to work with 
+    several AWS services to enhance the Loan Approval and Payment system:
+
+- **Amazon EC2**: Used for deploying and managing virtual servers. This allowed us to run our applications in a scalable and flexible environment.
+
+- **Amazon S3**: Utilized for storing and retrieving data, such as loan application documents and user information, providing durable and scalable storage.
+
+- **Amazon RDS**: Employed for managing our relational databases. We used RDS to handle database operations, ensuring high availability and automated backups.
+
+- **AWS Lambda**: Leveraged for running serverless functions. This was particularly useful for processing loan applications and payments asynchronously, reducing the load on our main servers.
+
+- **Amazon CloudWatch**: Implemented for monitoring and logging application performance and health. This helped us maintain visibility into the system's operations and quickly identify and address issues.
+
+- **AWS IAM**: Used for managing access and permissions. We defined roles and policies to ensure secure access to our AWS resources, following the principle of least privilege.
+
+- **Amazon SQS**: Utilized for decoupling and scaling microservices. We used SQS to handle asynchronous communication between different components of our system, ensuring reliable message delivery.
+
+These AWS services enabled us to build a robust, scalable, and secure Loan Approval and Payment system, providing high availability and efficient resource management.
+
+
 
 ### I have a UI application, the data need to be stored and send it to the downstream application for further processing how do you design this whole process?
 
@@ -284,10 +367,9 @@ Typically through:
 
 
 [//]: # (When making an HTTP request, there are some headers coming in. )
-
 ### How do you validate the headers before they reach the controller?
 
-To validate HTTP headers before they reach the controller in a Spring application, you can use a `HandlerInterceptor` or a `Filter`:
+    you can use a `HandlerInterceptor` or a `Filter`:
 
 1. **HandlerInterceptor Approach**:
    - Implement `HandlerInterceptor` and override `preHandle` method.
@@ -305,7 +387,8 @@ To validate HTTP headers before they reach the controller in a Spring applicatio
 
 ### Explain the process/flow of MVC.
 
-The MVC (Model-View-Controller) architectural pattern divides an application into three interconnected components:
+    The MVC (Model-View-Controller) architectural pattern divides an
+    application into three interconnected components:
 
 1. **Model**:
    - Represents the data and business logic of the application.
@@ -361,7 +444,7 @@ a specific aspect of the application's functionality, promoting modularity, main
 
 ### You have a complex SQL query with slow performance. How would you optimize the given query?
 
-To optimize a complex SQL query with slow performance, here are several approaches:
+Here are several approaches:
 
 1. **Index Optimization**:
    - Identify columns used in WHERE, JOIN, and ORDER BY clauses.
@@ -412,7 +495,8 @@ Ensuring efficient data retrieval and application responsiveness.
 
 ### In Java, how do hash maps work internally? 
 
-In Java, `HashMap` works internally using an array of linked lists (also known as buckets). Here’s a concise explanation of how `HashMap` operates internally:
+    In Java, `HashMap` works internally using an array of linked lists 
+    (also known as buckets).
 
 * **Hashing**: Converts keys to array indices.
 * **Buckets**: Array of linked lists (or trees) to handle collisions.
@@ -514,7 +598,8 @@ These scenarios leverage `Comparable` to define and maintain a natural ordering 
 
 ### How do your secure REST APIs?
 
-Securing REST APIs involves multiple layers of security measures to ensure data integrity, confidentiality, and authentication. Here are some key methods:
+    Securing REST APIs involves multiple layers of security measures to ensure data 
+    integrity, confidentiality, and authentication
 
 1. **Authentication and Authorization**:
    - **OAuth2**: Use OAuth2 for token-based authentication.
@@ -549,8 +634,8 @@ By combining these methods, you can effectively secure your REST APIs and protec
 
 ### Explain the CI/CD flow
 
-Continuous Integration and Continuous Deployment practices enable 
-frequent, reliable, and automated code changes. 
+    Continuous Integration and Continuous Deployment practices enable 
+    frequent, reliable, and automated code changes. 
 
 #### CI/CD Pipeline Example with Jenkins
 
@@ -637,7 +722,7 @@ with higher quality and reliability.
 
 ### What is the difference between the "WHERE" clause and the "HAVING" clause?
 
-Both are used to filter records in SQL queries
+    Both are used to filter records in SQL queries
 
 #### `WHERE` Clause
 - **Purpose**: Filters rows before any grouping is done.
@@ -717,4 +802,54 @@ WHERE salary > 50000;
 
 You can optimize costs and performance based on your data access needs and lifecycle requirements.
 
+### Java Persistence API
+
+    JPA is responsible for managing relational 
+    databases in Java applications.
+
+- Defined under the `javax.persistence` package.
+- Is the Java specification and not the implementation.
+- The standard API that allows developers to perform database operations smoothly.
+- Uses the `EntityManagerFactory` interface to interact with the entity manager factory for the persistence unit.
+- Uses the `EntityManager` interface to create, read, and delete operations for instances of mapped entity classes. This interface interacts with the persistence context.
+- Uses Java Persistence Query Language (JPQL) is an object-oriented query language to perform database operations.
+
+### Hibernate
+
+    Hibernate is an ORM tool used for saving the state of the
+    Java object in the database.
+
+- It is defined under `org.hibernate` package.
+- It uses Hibernate Query Language (HQL) is an object-oriented query language to perform database operations.
+- Hibernate is an implementation of JPA 
+- Uses common standards of Java Persistence API.
+- It is used to map Java data types with database tables and SQL data types.
+- It uses the `SessionFactory` interface for creating Session instances.
+- It uses a `Session` interface to create, read, and delete operations for instances of mapped entity classes.
+- It behaves as a runtime interface between a Java application and Hibernates.
+
 ## System Design
+
+## Resources
+
+### Differentiate between Volatile and Transient Variable in Java.
+### Differentiate between the Vector and ArrayList collections in Java.
+### How is Collection different from Collections in Java?
+### What do you understand by the `...` in the below method parameters?
+### Can you write a code for representing thread-safe singleton patterns in Java?
+### What is the importance of the hashCode() and equals() contract?
+### How is the classpath variable different from the path variables?
+### What is the result of the below code and Why?
+### How would you help a colleague with lesser Java experience who has trouble in serializing a class?
+### What is the best possible way to call the wait() method - by using the if construct or loop construct?
+### Can we use HashMap in a multi-threaded environment?
+### What is the result of the below code?
+### What is the result of the below Java code?
+### What will happen if you run 1.0/0.0?
+### Is it possible to override a method to throw RuntimeException from throwing NullPointerException in the parent class?
+### Is there any difference in defining or creating a String by using String literal and by using the new() operator?
+### What is the output of the below code?
+### What is the result of the below program?
+### What is the output of the below code and why?
+### Is it necessary to declare all immutable objects as final?
+### What do you know about Factory Design Pattern in Java?
