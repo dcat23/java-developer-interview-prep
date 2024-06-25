@@ -8,7 +8,6 @@
 * [Technical Questions](#technical-questions)
   * [Can you explain Spring MVC flow?](#can-you-explain-spring-mvc-flow)
   * [What are the bean scopes available in spring?](#what-are-the-bean-scopes-available-in-spring)
-  * [How do we create a single class java methodology?](#how-do-we-create-a-single-class-java-methodology)
   * [How do we block the bad request before reaching the controller?](#how-do-we-block-the-bad-request-before-reaching-the-controller)
   * [What is the purpose of using Kafka?](#what-is-the-purpose-of-using-kafka)
   * [What are the closures in JavaScript?](#what-are-the-closures-in-javascript)
@@ -34,6 +33,7 @@
     * [Differentiate between Volatile and Transient Variable in Java.](#differentiate-between-volatile-and-transient-variable-in-java)
     * [Differentiate between the Vector and ArrayList collections in Java.](#differentiate-between-the-vector-and-arraylist-collections-in-java)
     * [What do you understand by the `...` in the below method parameters?](#what-do-you-understand-by-the--in-the-below-method-parameters)
+* [Actual Questions](#actual-questions)
 
 ## Responsibilities
 - A clear communicator who is curious and embraces continuous improvement
@@ -853,3 +853,15 @@ You can optimize costs and performance based on your data access needs and lifec
 ### What is the output of the below code and why?
 ### Is it necessary to declare all immutable objects as final?
 ### What do you know about Factory Design Pattern in Java?
+
+## Actual Questions
+
+### How to send a Java object over a network properly? (serialization) How to serialize? What class needs to be implemented in order to serialize?
+### What are the basic access modifiers in Java?
+### Is data passed by value or reference?
+### Which collection will allow you to make sure there are no duplicates? (HashSet) How to make sure collections are ordered? (TreeSet)
+### Steps to design a spring REST API
+### An web app is loading slowly, what would you look for to find and resolve?
+### What is the React component lifecycle?
+
+
