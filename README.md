@@ -1,4 +1,4 @@
-# Java Full Stack Devevloper Interview Prep 
+]\# Java Full Stack Devevloper Interview Prep 
 [![GitHub Stars](https://img.shields.io/github/stars/dcat23/java-developer-interview-prep.svg)](https://github.com/dcat23/java-developer-interview-prep/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/dcat23/java-developer-interview-prep.svg)](https://github.com/dcat23/java-developer-interview-prep/issues)
 [![Current Version](https://img.shields.io/badge/version-0.0.0-green.svg)](https://github.com/dcat23/java-developer-interview-prep)
@@ -19,10 +19,15 @@ Resources to prepare for Java developer interviews
 * [Spring](#spring)
   * [What are the different types of scopes of beans in Spring?](#what-are-different-types-of-scopes-of-beans-in-spring)
   * [What is an IoC container?](#what-is-an-ioc-container)
+* [SQL](#sql)
+  * [What is the difference between CHAR and VARCHAR]()
+  * [What is DDL]()
 * [React](#react)
 * [Git Commands](#git-commands)
 * [Coding Problems](#solving-hackerrank--leetcode-problems)
   * [Local setup](#solving-problems-locally) 
+* [Resources](#resources)
+  * [SQL interview questions](https://www.geeksforgeeks.org/sql-interview-questions/)
 
 *These need to be updated:* 
 * [What is Serializable interface?](#what-is-serializable-interface)
@@ -364,6 +369,43 @@ Other IoC containers exist in various programming languages and frameworks,
 each with its own set of features and capabilities.
 
 ---
+
+## SQL
+
+### What is the difference between CHAR and VARCHAR?
+
+### What is view?
+  Get data from a few columns
+
+- can use alias table
+- 
+
+### What is a foreign notes
+
+### What is normalization/denormalization?
+  Create 
+
+### What are the operators?
+
+### What is user-defined function in PSQL?
+
+- values
+- defined on your own
+
+### What is ALIAS command?
+
+### What is ATL
+Extract data to warehouse.
+
+ Abstract, ,Load
+
+Getting data from multiple sources
+
+Needs to be transformed.
+
+
+
+__
 
 ## React
 
