@@ -302,8 +302,8 @@ and used throughout the application context.
 ## Spring
 
 ### What are different types of scopes of beans in Spring?
-In Spring Framework, beans can have different scopes, defining the 
-lifecycle and visibility of bean instances within the container.
+    In Spring Framework, beans can have different scopes, defining the 
+    lifecycle and visibility of bean instances within the container.
 
 
 #### Singleton Scope:
@@ -343,11 +343,13 @@ lifecycle and visibility of bean instances within the container.
 - It's similar to Singleton scope but is bound to ServletContext instead of Spring IoC container.
 
 ### What is an IoC container?
-In software engineering, an Inversion of Control (IoC) container, 
-often referred to as an IoC container or simply a container, is a component 
-responsible for managing the lifecycle of objects and their dependencies. 
+    Inversion of Control (IoC) container is a component responsible for 
+    managing the lifecycle of objects and their dependencies. 
 
-It implements the Inversion of Control principle, where the control of the flow of a program is inverted: instead of the application code controlling the creation and management of objects, the container takes over these responsibilities.
+It implements the Inversion of Control principle, where the control
+of the flow of a program is inverted: instead of the application code
+controlling the creation and management of objects, the container 
+takes over these responsibilities.
 
 #### Key features of an IoC container include:
 
@@ -356,7 +358,7 @@ It implements the Inversion of Control principle, where the control of the flow 
 - [Configuration Management:](#configuration-management) Configuration metadata, such as bean definitions and dependencies, is provided to the container, typically through XML configuration files, annotations, or Java-based configuration classes. The container uses this metadata to create and configure objects.
 - [Singleton Management:](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring) The container can manage singleton objects, ensuring that only one instance of a bean is created and shared within the application context.
 
-#### Spring ApplicationContext
+#### Spring Application Context
 Spring Framework provides an IoC container known as the Spring IoC container or ApplicationContext. 
 
 Features:
@@ -380,7 +382,7 @@ each with its own set of features and capabilities.
 - can use alias table
 - 
 
-### What is a foreign notes
+### What is a Foreign Key
 
 ### What is normalization/denormalization?
   Create 
