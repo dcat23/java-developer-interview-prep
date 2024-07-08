@@ -11,6 +11,7 @@ Resources to prepare for Java developer interviews
 
 * [Core Java](#core-java)
   * [What is the difference between Comparable and Comparator?](#what-is-the-difference-between-comparable-and-comparator)
+  * [In what scenarios do we use Comparable?](#in-what-scenarios-do-we-use-comparable)
   * [How HashMap works internally?](#how-hashmap-works-internally)
   * [Object-Oriented Programming](#describe-the-concepts-of-java-object-oriented-programming)
 * [Design Patterns](#design-patterns)
@@ -19,6 +20,7 @@ Resources to prepare for Java developer interviews
 * [Spring](#spring)
   * [What are the different types of scopes of beans in Spring?](#what-are-different-types-of-scopes-of-beans-in-spring)
   * [What is an IoC container?](#what-is-an-ioc-container)
+  * [What are the different singleton beans available?](#what-are-the-different-singleton-beans-available)
 * [SQL](#sql)
   * [What is the difference between CHAR and VARCHAR]()
   * [What is DDL]()
@@ -155,54 +157,86 @@ Abstract classes and interfaces are key components of abstraction in Java.
 [Grade comparator](./src/main/java/com/dcat/interviewprep/comparator/StudentGradeComparator.java) for sorting `Students` based on their grades,  
 
 
+### In what scenarios do we use Comparable?
+
+We use `Comparable` in Java in the following scenarios:
+
+1. **Sorting Collections**:
+  - To sort a collection of objects using `Collections.sort()` or `Arrays.sort()`.
+
+2. **TreeSet and TreeMap**:
+  - When using `TreeSet` or `TreeMap`, elements or keys must implement `Comparable` to maintain order.
+  - Example:
+    ```java
+    TreeSet<Person> personSet = new TreeSet<>();
+    personSet.add(new Person("Alice", 30));
+    personSet.add(new Person("Bob", 25));
+    ```
+
+3. **PriorityQueue**:
+  - Elements in a `PriorityQueue` must implement `Comparable` to determine their natural ordering.
+  - Example:
+    ```java
+    PriorityQueue<Person> queue = new PriorityQueue<>();
+    queue.add(new Person("Alice", 30));
+    queue.add(new Person("Bob", 25));
+    ```
+
+These scenarios leverage `Comparable` to define and maintain a natural ordering of objects.
+
+
 ### How HashMap works internally?
-`HashMap` is a data structure that implements the `Map` interface, providing 
-key-value pair storage and retrieval functionality. 
+In Java, `HashMap` works internally using an array of linked lists
+(also known as buckets).
 
-Internally, `HashMap` uses an array of 'buckets' to store key-value pairs.
+* **Hashing**: Converts keys to array indices.
+* **Buckets**: Array of linked lists (or trees) to handle collisions.
+* **Collision Handling**: Linked lists for small collisions, trees for larger collisions.
+* **Resizing**: Dynamically adjusts size to maintain performance.
 
-Each bucket is essentially a linked list of entries (or nodes), where each entry contains 
-a key-value pair and a reference to the next entry in the list.
+1. **Hashing**:
+  - When a key-value pair is inserted, the key’s hash code is computed using the `hashCode()` method.
+  - The hash code is then transformed into an array index using the formula: `index = hashCode % arrayLength`.
 
-#### Hashing:
-When you put a key-value pair into a HashMap, the HashMap computes the hash code of the
-key using the `hashCode()` method of the key object. 
+2. **Buckets**:
+  - The array index determines which bucket (linked list) will store the entry.
+  - Each bucket can store multiple entries to handle hash collisions (when different keys produce the same index).
 
-This hash code is then used to determine the index (or bucket) in the array where the 
-key-value pair will be stored.
+3. **Entry (Node) Structure**:
+  - Each entry in the `HashMap` is represented by a `Node` (or `Entry`) object.
+  - The `Node` contains the key, value, hash code, and a reference to the next `Node` in the bucket (linked list).
 
-#### Bucket Selection:
-Once the hash code is computed, `HashMap` uses it to determine the bucket where the 
-key-value pair will be stored. 
+4. **Collision Handling**:
+  - If a collision occurs (multiple keys hash to the same bucket), the new entry is added to the linked list within that bucket.
+  - Java 8 and later versions convert linked lists to balanced trees (red-black trees) if the number of entries in a bucket exceeds a certain threshold (`TREEIFY_THRESHOLD`) to improve lookup performance.
 
-The index of the bucket is obtained by performing a modulo operation on the hash code 
-with the size of the array (number of buckets). 
+5. **Retrieval**:
+  - To retrieve a value, the key’s hash code is computed and the appropriate bucket is located using the same hash code transformation.
+  - The bucket is traversed (or the tree is searched) to find the entry with the matching key.
 
-This ensures that the index falls within the valid range of bucket indices.
+6. **Resizing**:
+  - When the number of entries exceeds the product of the load factor and the current capacity (`loadFactor * capacity`), the `HashMap` is resized (doubled in size) to maintain efficient performance.
+  - During resizing, all entries are rehashed and redistributed into the new array of buckets.
 
-#### Collision Handling:
-Since multiple keys can have the same hash code (known as hash code collisions), 
-`HashMap` handles collisions by using a linked list structure. 
+**Example**:
 
-If two keys hash to the same index, their key-value pairs are stored in the same bucket 
-as a linked list. New entries are appended to the end of the linked list.
+```java
+public class HashMapExample {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
 
-#### Load Factor and Rehashing:
-`HashMap` maintains a load factor (default value is 0.75) that determines when the 
-internal array needs to be resized and rehashed. 
+        // Insert key-value pairs
+        map.put("one", 1);
+        map.put("two", 2);
+        map.put("three", 3);
 
-When the number of entries exceeds the product of the load factor and the current 
-capacity of the array, `HashMap` automatically increases the capacity of the array and
-rehashes all entries to redistribute them across the new array.
-
-#### Retrieval and Removal:
-1. Compute the hash code of the key.
-2. Determine the bucket where the key-value pair is stored (using modulo `%`)
-3. Traverses the linked list in that bucket to find the entry with the matching key. 
-
-Similarly, when you remove a key-value pair, `HashMap` locates the bucket and entry using 
-the hash code of the key and removes the entry from the linked list.
-
+        // Retrieve values
+        System.out.println(map.get("one"));   // Output: 1
+        System.out.println(map.get("two"));   // Output: 2
+        System.out.println(map.get("three")); // Output: 3
+    }
+}
+```
 [Example HashMap](./src/main/java/com/dcat/interviewprep/hashmap/MyHashMap.java)
 
 --- 
@@ -369,6 +403,18 @@ Features:
 
 Other IoC containers exist in various programming languages and frameworks, 
 each with its own set of features and capabilities.
+
+### What are the different singleton beans available?
+
+In Spring, there are primarily two types of singleton beans:
+
+1. **Default Singleton Beans**:
+  - Created once per Spring IoC container.
+  - Typical scope for beans unless specified otherwise.
+
+2. **Lazy Initialization Singleton Beans**:
+  - Created when first requested, rather than at container startup.
+  - Defined using `@Lazy` annotation or `lazy-init="true"` in XML configuration.
 
 ---
 
