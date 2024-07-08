@@ -14,6 +14,11 @@ Resources to prepare for Java developer interviews
   * [In what scenarios do we use Comparable?](#in-what-scenarios-do-we-use-comparable)
   * [How HashMap works internally?](#how-hashmap-works-internally)
   * [Object-Oriented Programming](#describe-the-concepts-of-java-object-oriented-programming)
+    * [Classes And Objects](#classes-and-objects)
+    * [Encapsulation](#Encapsulation)
+    * [Inheritance](#Inheritance)
+    * [Polymorphism](#Polymorphism)
+    * [Abstraction](#Abstraction)
 * [Design Patterns](#design-patterns)
     * [What is Dependency Injection?](#what-is-dependency-injection)
     * [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring)
@@ -46,8 +51,6 @@ Resources to prepare for Java developer interviews
 * [What is ArrayList?](#what-is-arraylist)
 * [What is the difference between ArrayList and Linked List?](#what-is-the-difference-between-arraylist-and-linked-list)
 * [How HashSet works internally?](#how-hashset-works-internally)
-* [Difference between Spring and Spring Boot.](#difference-between-spring-and-spring-boot)
-* [Difference between @RestController and @Controller annotation.](#difference-between-restcontroller-and-controller-annotation)
 * [Difference between arrays and arraylist.](#difference-between-arrays-and-arraylist)
 * [Why String is immutable in java and how?](#why-string-is-immutable-in-java-and-how)
 * [What are wrapper classes?](#what-are-wrapper-classes)
@@ -110,15 +113,15 @@ on the concept of "objects"
 - It represents a specific entity in the program's domain.
 
 #### Encapsulation:
-Encapsulation is the bundling of data (attributes) and
-methods that operate on that data into a single unit (a class).
+    Encapsulation is the bundling of data (attributes) and
+    methods that operate on that data into a single unit (a class).
 
 - Hides the internal state of an object
 - Only exposes the necessary operations to interact with it
 - Promotes data abstraction and security.
 
 #### Inheritance:
-Inheritance is a mechanism by which one class can inherit properties and behavior from another class.
+    One class can inherit properties and behavior from another class.
 
 - The class being inherited from is called the `superclass` or `parent` class,
 - The class that inherits is called the `subclass` or `child` class.
@@ -126,8 +129,8 @@ Inheritance is a mechanism by which one class can inherit properties and behavio
 - Allows for the creation of hierarchical relationships between classes.
 
 #### Polymorphism:
-Polymorphism means the ability to take many forms.
-Allows objects of different classes to be treated as objects of a common superclass.
+    Polymorphism means the ability to take many forms.
+    Allows objects of different classes to be treated as objects of a common superclass.
 
 - compile-time polymorphism (method overloading)
 - runtime polymorphism (method overriding).
@@ -135,7 +138,8 @@ Allows objects of different classes to be treated as objects of a common supercl
 Method overriding occurs when a subclass provides a specific implementation of a method that is already defined in its superclass.
 
 #### Abstraction:
-Abstraction refers to the process of hiding the implementation details and showing only the essential features of an object.
+    The process of hiding the implementation details 
+    and showing only the essential features of an object.
 
 Abstract classes and interfaces are key components of abstraction in Java.
 
@@ -615,8 +619,6 @@ void removeDuplicatesTest() {
 ### What is ArrayList?
 ### What is the difference between ArrayList and Linked List?
 ### How HashSet works internally?
-### Difference between Spring and Spring Boot.
-### Difference between @RestController and @Controller annotation.
 ### Difference between arrays and arraylist.
 ### Why String is immutable in java and how?
 ### What are wrapper classes?
