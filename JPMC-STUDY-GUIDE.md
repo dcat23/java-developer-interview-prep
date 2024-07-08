@@ -16,7 +16,7 @@
   * [What is dependency injection?](#what-is-dependency-injection)
   * [How do you validate the headers before they reach the controller?](#how-do-you-validate-the-headers-before-they-reach-the-controller)
   * [Explain the process/flow of MVC.](#explain-the-processflow-of-mvc)
-  * [SQL: Difference between the "WHERE" and "HAVING" clause?](#sql-question-what-is-the-difference-between-the-where-clause-and-the-having-clause)
+  * [SQL: Difference between the "WHERE" and "HAVING" clause?](#what-is-the-difference-between-the-where-clause-and-the-having-clause)
   * [You have a complex SQL query with slow performance. How would you optimize the given query?](#you-have-a-complex-sql-query-with-slow-performance-how-would-you-optimize-the-given-query)
   * [In Java, how do hash maps work internally?](README.md#how-hashmap-works-internally)
   * [In what scenarios do we use Comparable?](#in-what-scenarios-do-we-use-comparable)

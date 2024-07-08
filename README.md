@@ -20,6 +20,9 @@ Resources to prepare for Java developer interviews
     * [Polymorphism](#Polymorphism)
     * [Abstraction](#Abstraction)
   * [What is Serializable interface?](#what-is-serializable-interface)
+  * [What is the difference between ArrayList and Linked List?](#what-is-the-difference-between-arraylist-and-linked-list)
+  * [Do Java support pointers?](#do-java-support-pointers)
+  * [Difference between JVM, JDK, and JRE](#difference-between-jvm-jdk-and-jre)
 * [Design Patterns](#design-patterns)
     * [What is Dependency Injection?](#what-is-dependency-injection)
     * [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring)
@@ -30,7 +33,6 @@ Resources to prepare for Java developer interviews
   * [Can you explain Spring MVC flow?](./JPMC-STUDY-GUIDE.md#can-you-explain-spring-mvc-flow)
   * [How do we block the bad request before reaching the controller?](./JPMC-STUDY-GUIDE.md#how-do-we-block-the-bad-request-before-reaching-the-controller)
   * [What are the different singleton beans available?](./JPMC-STUDY-GUIDE.md#in-spring-what-are-the-different-singleton-beans-available)
-  * [How do you validate the headers before they reach the controller?](#how-do-you-validate-the-headers-before-they-reach-the-controller)
   * [Explain the process/flow of MVC.](#explain-the-processflow-of-mvc)
 * [Microservices](#microservices)
   * [If Service A is talking to Service B, how do you handle it?](#in-a-microservices-architecture-if-service-a-is-talking-to-service-b-how-do-you-handle-it)
@@ -38,7 +40,7 @@ Resources to prepare for Java developer interviews
 * [SQL](#sql)
   * [What is the difference between CHAR and VARCHAR]()
   * [What is DDL]()
-  * [Difference between the "WHERE" and "HAVING" clause?](#sql-question-what-is-the-difference-between-the-where-clause-and-the-having-clause)
+  * [Difference between the "WHERE" and "HAVING" clause?](./JPMC-STUDY-GUIDE.md#what-is-the-difference-between-the-where-clause-and-the-having-clause)
 * [React](#react)
   * [What is the component lifecycle]()
 * [Git Commands](#git-commands)
@@ -47,10 +49,8 @@ Resources to prepare for Java developer interviews
 * [Resources](#resources)
   * [SQL interview questions](https://www.geeksforgeeks.org/sql-interview-questions/)
 
-*These need to be updated:* 
-* 
+*These need to be updated:*
 * [What is ArrayList?](#what-is-arraylist)
-* [What is the difference between ArrayList and Linked List?](#what-is-the-difference-between-arraylist-and-linked-list)
 * [How HashSet works internally?](#how-hashset-works-internally)
 * [Difference between arrays and arraylist.](#difference-between-arrays-and-arraylist)
 * [Why String is immutable in java and how?](#why-string-is-immutable-in-java-and-how)
@@ -64,7 +64,6 @@ Resources to prepare for Java developer interviews
 * [What is a lambda expression?](#what-is-a-lambda-expression)
 * [What are the new features of ES6?](#what-are-the-new-features-of-es6)
 * [What are the features of Java 8?](#what-are-the-features-of-java-8)
-* [Difference between JVM, JDK, and JRE.](#difference-between-jvm-jdk-and-jre)
 * [How Java is platform independent?](#how-java-is-platform-independent)
 * [What is a ContextAPI hook in React?](#what-is-a-contextapi-hook-in-react)
 * [What is prop drilling in React?](#what-is-prop-drilling-in-react)
@@ -93,7 +92,6 @@ Resources to prepare for Java developer interviews
 * [What is the use of application.properties file in a spring boot application?](#what-is-the-use-of-applicationproperties-file-in-a-spring-boot-application)
 * [What is Maven?](#what-is-maven)
 * [What is the difference between StringBuffer and StringBuilder?](#what-is-the-difference-between-stringbuffer-and-stringbuilder)
-* [Do Java support pointers?](#do-java-support-pointers)
 * [What are legacy classes(e.g HashTable)?](#what-are-legacy-classeseg-hashtable)
 * [What is the use of Synchronized keyword?](#what-is-the-use-of-synchronized-keyword)
 * [What is Spring Data JPA?](#what-is-spring-data-jpa)
@@ -268,8 +266,50 @@ typically for storage or transmission.
 - interface does not have any methods to implement
 - serves as a marker for Java runtime that the class is serializable.
 
+### What is the difference between ArrayList and Linked List?
+**ArrayList:**
+- **Underlying Data Structure**: Uses a dynamic array to store elements.
+- **Access**: Provides fast access to elements using index-based retrieval (`get` method).
+- **Insertion and Deletion**: Slower for inserting and deleting elements, especially in the middle, because it requires shifting elements.
+- **Memory Usage**: More memory efficient than `LinkedList` when considering capacity management.
+
+**LinkedList:**
+- **Underlying Data Structure**: Uses a doubly linked list to store elements.
+- **Access**: Slower access to elements compared to `ArrayList` because it requires traversal from the head or tail.
+- **Insertion and Deletion**: Faster for inserting and deleting elements, especially in the middle, as it only requires updating links.
+- **Memory Usage**: Uses more memory than `ArrayList` due to the overhead of maintaining links between elements.
+
+
+### Do Java support pointers?
+    Java does not support pointers. Java uses references, which are similar but more restricted
+
+- References point to objects in memory, not to memory addresses like pointers.
+- References cannot be manipulated in terms of memory arithmetic or direct memory access.
+- Java handles memory management automatically through garbage collection, which alleviates the need for pointer-related operations like manual memory deallocation.
+
+
+### Difference between JVM, JDK, and JRE.
+
+**JVM (Java Virtual Machine):**
+- **Execution Environment**: Provides a runtime environment for executing Java bytecode.
+- **Platform Independence**: Converts bytecode into machine-specific instructions.
+- **Memory Management**: Manages memory allocation and garbage collection.
+- **Interprets Bytecode**: Interprets Java bytecode or JIT compiles it into native machine code for execution.
+
+**JRE (Java Runtime Environment):**
+- **Runtime Environment**: Provides the environment necessary for running Java applications.
+- **Includes JVM**: Contains JVM along with core libraries and other components needed for executing Java applications.
+- **No Development Tools**: Does not include development tools like compiler and debugger.
+
+**JDK (Java Development Kit):**
+- **Development Kit**: Includes JRE along with development tools such as compiler (`javac`), debugger, and other tools (e.g., `javadoc`).
+- **For Development**: Used for developing Java applications, including compiling, debugging, and packaging applications.
+- **Complete Package**: Includes everything needed for both development and execution of Java applications.
+
 
 --- 
+
+
 
 ## Design Patterns
 
@@ -633,7 +673,6 @@ void removeDuplicatesTest() {
 
 
 ### What is ArrayList?
-### What is the difference between ArrayList and Linked List?
 ### How HashSet works internally?
 ### Difference between arrays and arraylist.
 ### Why String is immutable in java and how?
@@ -647,7 +686,6 @@ void removeDuplicatesTest() {
 ### What is a lambda expression?
 ### What are the new features of ES6?
 ### What are the features of Java 8?
-### Difference between JVM, JDK, and JRE.
 ### How Java is platform independent?
 ### What is a ContextAPI hook in React?
 ### What is prop drilling in React?
@@ -676,7 +714,6 @@ void removeDuplicatesTest() {
 ### What is the use of application.properties file in a spring boot application?
 ### What is Maven?
 ### What is the difference between StringBuffer and StringBuilder?
-### Do Java support pointers?
 ### What are legacy classes(e.g HashTable)?
 ### What is the use of Synchronized keyword?
 ### What is Spring Data JPA?
