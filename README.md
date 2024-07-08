@@ -19,6 +19,7 @@ Resources to prepare for Java developer interviews
     * [Inheritance](#Inheritance)
     * [Polymorphism](#Polymorphism)
     * [Abstraction](#Abstraction)
+  * [What is Serializable interface?](#what-is-serializable-interface)
 * [Design Patterns](#design-patterns)
     * [What is Dependency Injection?](#what-is-dependency-injection)
     * [What is a Singleton design pattern and how it is related to Spring?](#what-is-a-singleton-design-pattern-and-how-it-is-related-to-spring)
@@ -47,7 +48,7 @@ Resources to prepare for Java developer interviews
   * [SQL interview questions](https://www.geeksforgeeks.org/sql-interview-questions/)
 
 *These need to be updated:* 
-* [What is Serializable interface?](#what-is-serializable-interface)
+* 
 * [What is ArrayList?](#what-is-arraylist)
 * [What is the difference between ArrayList and Linked List?](#what-is-the-difference-between-arraylist-and-linked-list)
 * [How HashSet works internally?](#how-hashset-works-internally)
@@ -198,10 +199,9 @@ We use `Comparable` in Java in the following scenarios:
 
 These scenarios leverage `Comparable` to define and maintain a natural ordering of objects.
 
-
 ### How HashMap works internally?
-In Java, `HashMap` works internally using an array of linked lists
-(also known as buckets).
+    In Java, `HashMap` works internally using an array of linked lists
+    (also known as buckets).
 
 * **Hashing**: Converts keys to array indices.
 * **Buckets**: Array of linked lists (or trees) to handle collisions.
@@ -252,6 +252,22 @@ public class HashMapExample {
 }
 ```
 [Example HashMap](./src/main/java/com/dcat/interviewprep/hashmap/MyHashMap.java)
+
+### What is Serializable interface?
+    The `Serializable` interface in Java is a marker interface that 
+    indicates a class can be serialized. 
+
+**Serialization**: 
+The process of converting an object into a byte stream, 
+which can be stored persistently or transmitted over a network.
+
+When a class implements `Serializable`, it signifies that its instances 
+can be converted into a format that can be easily reconstructed into an object again, 
+typically for storage or transmission. 
+
+- interface does not have any methods to implement
+- serves as a marker for Java runtime that the class is serializable.
+
 
 --- 
 
@@ -615,7 +631,7 @@ void removeDuplicatesTest() {
 
 
 
-### What is Serializable interface?
+
 ### What is ArrayList?
 ### What is the difference between ArrayList and Linked List?
 ### How HashSet works internally?
