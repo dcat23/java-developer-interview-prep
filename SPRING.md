@@ -7,6 +7,7 @@
 * [Explain `@SpringBootApplication`, `@Configuration` and `@ComponentScan` annotations](#explain-springbootapplication-configuration-and-componentscan-annotations)
 * [Why do we need a spring-boot-maven plugin?](#why-do-we-need-a-spring-boot-maven-plugin)
 * [@RestController vs @Controller in Spring Boot?](#restcontroller-vs-controller-in-spring-boot)
+* [How to Implement Security for Spring Boot Application?](#how-to-implement-security-for-spring-boot-application)
 
 ## What is the Spring Boot?
     Spring Boot is a framework that simplifies the development of
@@ -87,4 +88,22 @@
 - **Generic Controller**: Used to define a web controller in a Spring MVC application.
 - **View Resolution**: Typically returns views (e.g., JSP, Thymeleaf) and relies on view resolvers.
 - **Flexible Responses**: Can return any type of response, including views and data (with `@ResponseBody`).
+
+## How to Implement Security for Spring Boot Application?
+
+1. **Dependency Configuration**: Include dependencies like `spring-boot-starter-security` in your `pom.xml` or `build.gradle`.
+
+2. **Security Configuration**: Create a security configuration class annotated with `@EnableWebSecurity` to customize security settings.
+
+3. **Authentication and Authorization**: Configure authentication using in-memory, JDBC, LDAP, or custom user details services. Define authorization rules using `HttpSecurity`.
+
+4. **User Roles and Permissions**: Define roles and permissions using `@Secured`, `@PreAuthorize`, or `@PostAuthorize` annotations.
+
+5. **Form-Based Login or OAuth**: Implement form-based login using `UsernamePasswordAuthenticationFilter` or integrate OAuth providers like Google or GitHub using Spring Security OAuth.
+
+6. **Secure REST APIs**: Use `@EnableGlobalMethodSecurity` with `@PreAuthorize` or `@PostAuthorize` for method-level security in REST controllers.
+
+7. **Testing Security**: Write integration tests using Spring Security’s test support to validate authentication and authorization rules.
+
+8. **Monitoring and Logging**: Monitor security events and log authentication/authorization failures for auditing purposes.
 
