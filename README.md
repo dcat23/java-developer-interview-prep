@@ -21,10 +21,20 @@ Resources to prepare for Java developer interviews
   * [What are the different types of scopes of beans in Spring?](#what-are-different-types-of-scopes-of-beans-in-spring)
   * [What is an IoC container?](#what-is-an-ioc-container)
   * [What are the different singleton beans available?](#what-are-the-different-singleton-beans-available)
+  * [Can you explain Spring MVC flow?](./JPMC-STUDY-GUIDE.md#can-you-explain-spring-mvc-flow)
+  * [How do we block the bad request before reaching the controller?](./JPMC-STUDY-GUIDE.md#how-do-we-block-the-bad-request-before-reaching-the-controller)
+  * [What are the different singleton beans available?](./JPMC-STUDY-GUIDE.md#in-spring-what-are-the-different-singleton-beans-available)
+  * [How do you validate the headers before they reach the controller?](#how-do-you-validate-the-headers-before-they-reach-the-controller)
+  * [Explain the process/flow of MVC.](#explain-the-processflow-of-mvc)
+* [Microservices](#microservices)
+  * [If Service A is talking to Service B, how do you handle it?](#in-a-microservices-architecture-if-service-a-is-talking-to-service-b-how-do-you-handle-it)
+  * [What is the purpose of using Kafka?](#what-is-the-purpose-of-using-kafka)
 * [SQL](#sql)
   * [What is the difference between CHAR and VARCHAR]()
   * [What is DDL]()
+  * [Difference between the "WHERE" and "HAVING" clause?](#sql-question-what-is-the-difference-between-the-where-clause-and-the-having-clause)
 * [React](#react)
+  * [What is the component lifecycle]()
 * [Git Commands](#git-commands)
 * [Coding Problems](#solving-hackerrank--leetcode-problems)
   * [Local setup](#solving-problems-locally) 
@@ -456,6 +466,26 @@ Needs to be transformed.
 __
 
 ## React
+
+### What is the component lifecycle
+
+1. Mounting Phase:
+  - `constructor(props)`: Initialize state and bind methods.
+  - `render()`: Prepare and structure JSX.
+  - `componentDidMount()`: Perform actions after component is rendered once (e.g., data fetching).
+2. Updating Phase:
+  - static `getDerivedStateFromProps(nextProps, prevState)`: Sync state with props changes.
+  - `shouldComponentUpdate(nextProps, nextState)`: Decide whether to re-render.
+  - `render()`: Update JSX based on state/props changes.
+  - `getSnapshotBeforeUpdate(prevProps, prevState)`: Capture current DOM state before an update.
+  - `componentDidUpdate(prevProps, prevState, snapshot)`: Perform actions after component updates.
+3. Unmounting Phase:
+  - `componentWillUnmount()`: Clean up tasks (e.g., subscriptions) before component is removed.
+4. Error Handling:
+  - static `getDerivedStateFromError(error)`: Update state for error boundaries.
+  - `componentDidCatch(error, info)`: Handle errors during rendering.
+**Note**:
+Deprecated Methods: `componentWillMount()`, `componentWillReceiveProps()`, and `componentWillUpdate()` are deprecated.
 
 ---
 
