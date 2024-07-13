@@ -7,11 +7,45 @@ public class BinarySearch {
         int left  = 0;
         int right = nums.length - 1;
 
-        while ((right - left) > 1) {
+
+        while (left <= right) {
             int index = (right + left) / 2;
             int value = nums[index];
 
             if (value == target) {
+                return index;
+            }
+
+            if (value < target) {
+                left = index;
+            }
+
+            if (value > target) {
+                right = index;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int search2(int[] nums, int target) {
+
+        int left  = 0;
+        int right = nums.length - 1;
+
+        if (nums.length == 1) {
+            if (nums[0] == target) return 0;
+        }
+
+        int index;
+
+        while ((right - left) > 1) {
+            index = (right + left) / 2;
+            int value = nums[index];
+
+            if (value == target) {
+
+
                 return index;
             }
 
