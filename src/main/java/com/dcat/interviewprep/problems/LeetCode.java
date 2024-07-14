@@ -35,4 +35,25 @@ public class LeetCode {
         }
         return nonDupeIdx + 1;
     }
+
+
+    /**
+     * You are climbing a staircase. It takes `n` steps to reach the top.
+     *
+     * Each time you can either climb 1 or 2 steps.
+     * In how many distinct ways can you climb to the top?
+     *
+     * @param n
+     * @return
+     */
+    static public int climbStairs(int n) {
+        double sqrt5 = Math.sqrt(5);
+        double phi = (1 + sqrt5) / 2;
+        double psi = (1 - sqrt5) / 2;
+
+        // Using Binet's formula for Fibonacci number
+        double fib_n = (Math.pow(phi, n + 1) - Math.pow(psi, n + 1)) / sqrt5;
+
+        return (int) Math.round(fib_n); // Round to the nearest integer
+    }
 }

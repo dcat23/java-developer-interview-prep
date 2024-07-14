@@ -8,8 +8,8 @@ public class IsPalindrome {
 
         int N = phrase.length();
 
-        for (int start = 0, end = N - 1; start < end; start++, end--) {
-            if(s.charAt(start) != s.charAt(end)) {
+        for (int start = 0, end = N - 1; start <= end; start++, end--) {
+            if(phrase.charAt(start) != phrase.charAt(end)) {
                 return false;
             }
         }
@@ -17,7 +17,5 @@ public class IsPalindrome {
         return true;
     }
 
-    public static void main(String[] args) {
 
-    }
 }

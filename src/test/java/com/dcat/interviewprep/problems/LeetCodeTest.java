@@ -1,8 +1,11 @@
 package com.dcat.interviewprep.problems;
 
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.dcat.interviewprep.problems.LeetCode.removeDuplicates;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LeetCodeTest {
@@ -17,4 +20,19 @@ class LeetCodeTest {
         assertEquals(removeDuplicates(case2), 5);
 
     }
+
+
+    @Test
+    @DisplayName("climb stair case")
+    void given_when_then() {
+        /* Given -  */
+        ;
+
+        /* When -  */
+        ;
+
+        /* Then -  */
+//        assertThat();
+    }
+
 }
