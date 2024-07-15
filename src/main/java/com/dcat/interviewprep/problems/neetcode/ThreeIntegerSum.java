@@ -8,7 +8,6 @@ public class ThreeIntegerSum {
 
     /**
      * The output should not contain any duplicate triplets.
-     *
      * You may return the output and the triplets in any order.
      *
      * @param nums integer array

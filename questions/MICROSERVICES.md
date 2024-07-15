@@ -71,6 +71,7 @@ public class ServiceA {
     }
 }
 ```
+
 3. **Message Brokers**:
     - **Asynchronous Communication**: Use message brokers like Kafka, RabbitMQ, or AWS SQS for asynchronous communication.
     - **Event-Driven**: Service A publishes messages/events to a topic/queue, and Service B subscribes to them.

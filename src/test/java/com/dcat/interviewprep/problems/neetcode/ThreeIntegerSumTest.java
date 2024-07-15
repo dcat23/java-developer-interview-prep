@@ -3,7 +3,6 @@ package com.dcat.interviewprep.problems.neetcode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static com.dcat.interviewprep.problems.neetcode.ThreeIntegerSum.threeSum;

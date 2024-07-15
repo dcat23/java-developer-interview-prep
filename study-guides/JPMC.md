@@ -8,9 +8,9 @@
 * [Technical Questions](#technical-questions)
   * [Can you explain Spring MVC flow?](#can-you-explain-spring-mvc-flow)
   * [How do we block the bad request before reaching the controller?](#how-do-we-block-the-bad-request-before-reaching-the-controller)
-  * [Microservices: What is the purpose of using Kafka?](./MICROSERVICES.md#what-is-the-purpose-of-using-kafka)
+  * [Microservices: What is the purpose of using Kafka?](../questions/MICROSERVICES.md#what-is-the-purpose-of-using-kafka)
   * [What are the closures in JavaScript?](#what-are-the-closures-in-javascript)
-  * [Microservices: if Service A is talking to Service B, how do you handle it?](./MICROSERVICES.md#if-service-a-is-talking-to-service-b-how-do-you-handle-it)
+  * [Microservices: if Service A is talking to Service B, how do you handle it?](../questions/MICROSERVICES.md#if-service-a-is-talking-to-service-b-how-do-you-handle-it)
   * [In Spring, what are the different singleton beans available?](#in-spring-what-are-the-different-singleton-beans-available)
   * [What is the default scope of beans in Spring?](#what-is-the-default-scope-of-beans-in-spring)
   * [What is dependency injection?](#what-is-dependency-injection)
@@ -18,7 +18,7 @@
   * [Explain the process/flow of MVC.](#explain-the-processflow-of-mvc)
   * [SQL: Difference between the "WHERE" and "HAVING" clause?](#what-is-the-difference-between-the-where-clause-and-the-having-clause)
   * [You have a complex SQL query with slow performance. How would you optimize the given query?](#you-have-a-complex-sql-query-with-slow-performance-how-would-you-optimize-the-given-query)
-  * [In Java, how do hash maps work internally?](README.md#how-hashmap-works-internally)
+  * [In Java, how do hash maps work internally?](../README.md#how-hashmap-works-internally)
   * [In what scenarios do we use Comparable?](#in-what-scenarios-do-we-use-comparable)
   * [How do you secure REST APIs?](#how-do-you-secure-rest-apis)
   * [What are the AWS services you have experience with?](#what-are-the-aws-services-you-have-experience-with)
@@ -545,7 +545,7 @@ These scenarios leverage `Comparable` to define and maintain a natural ordering 
 
 5. **Input Validation**:
    - Validate all incoming data to prevent SQL injection, XSS, and other injection attacks.
-   - [Example: Use validation annotations in Spring.](demo/src/main/java/com/dcat23/spring/demo/model/User.java)
+   - [Example: Use validation annotations in Spring.](../demo/src/main/java/com/dcat23/spring/demo/model/User.java)
 
 6. **CORS (Cross-Origin Resource Sharing)**:
    - Configure CORS to control which domains can access your API.
