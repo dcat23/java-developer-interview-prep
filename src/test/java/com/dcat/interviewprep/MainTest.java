@@ -2,8 +2,10 @@ package com.dcat.interviewprep;
 
 import com.dcat.interviewprep.hashmap.MyHashMap;
 import com.dcat.interviewprep.singleton.Singleton;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
@@ -39,5 +41,20 @@ class MainTest {
         assertEquals(dictionary.get("No shot"), noShotDefinition);
         assertNull(dictionary.get("Velcro kitty"));
 
+    }
+
+    @Test
+    @DisplayName("int index value")
+    void givenIntWithArray_whenChangeVariable_thenTestChangeInArray() {
+        /* Given - int with array */
+        int value = 10;
+        int[] ints = new int[]{value};
+
+        /* When - change variable */
+        value += 10;
+
+        /* Then - test change in array */
+        assertThat(ints[0]).isEqualTo(10);
+        assertThat(ints[0]).isNotEqualTo(value);
     }
 }

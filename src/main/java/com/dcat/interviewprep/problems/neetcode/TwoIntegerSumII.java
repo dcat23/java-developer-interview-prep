@@ -14,19 +14,20 @@ public class TwoIntegerSumII {
      * @return the indices (1-indexed) of two numbers, [index1, index2]
      */
     static public int[] twoSum(int[] numbers, int target) {
-        int index1 = 0, index2 = 1;
+        int start = 0, end = numbers.length - 1;
 
-        while (index2 < numbers.length) {
-            int one = numbers[index1];
-            int two = numbers[index2];
+        while (start < end) {
+            int one = numbers[start];
+            int two = numbers[end];
 
             if (one + two == target) {
                 break;
             }
 
-            index2++;
+            if (one + two > target) end--;
+            if (one + two < target) start++;
         }
 
-        return new int[]{index1 + 1, index2 + 1};
+        return new int[]{start + 1, end + 1};
     }
 }
