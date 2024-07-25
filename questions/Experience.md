@@ -12,14 +12,13 @@
 I am Devin Catuns, a Full Stack Java Developer with four years of experience in 
 software development. 
 
-I specialize in building scalable and efficient applications using a 
-range of technologies including:
-   -  Core Java,
+I specialize in building applications using:
+   - Core Java,
    - Spring Boot,
    - React,
-   - various database systems such as Oracle and Postgres.
+   - various database systems such as Postgres.
 
-I began my journey with an Associate degree in Engineering from Amarillo College
+I began my journey with an Associate degree in Electical Engineering from Amarillo College
 and further honed my skills in software engineering through a rigorous cohort 
 at App Academy. 
 
