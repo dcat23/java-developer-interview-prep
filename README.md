@@ -1,4 +1,4 @@
-]\# Java Full Stack Devevloper Interview Prep 
+# Java Full Stack Devevloper Interview Prep 
 [![GitHub Stars](https://img.shields.io/github/stars/dcat23/java-developer-interview-prep.svg)](https://github.com/dcat23/java-developer-interview-prep/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/dcat23/java-developer-interview-prep.svg)](https://github.com/dcat23/java-developer-interview-prep/issues)
 [![Current Version](https://img.shields.io/badge/version-0.0.0-green.svg)](https://github.com/dcat23/java-developer-interview-prep)
